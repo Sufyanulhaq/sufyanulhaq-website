@@ -17,22 +17,23 @@ export function pageMetadata({
 }: PageMetaInput): Metadata {
   const url = new URL(path, site.url).toString();
   const ogImage = image ?? new URL("/opengraph-image", site.url).toString();
+  const fullTitle = `${title} — ${site.name}`;
 
   return {
     title,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url,
       siteName: site.name,
       type: "website",
-      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: fullTitle }],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: [ogImage],
     },
