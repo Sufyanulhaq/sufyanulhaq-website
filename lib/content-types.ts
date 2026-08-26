@@ -1,0 +1,60 @@
+import type { PortableTextBlock } from "next-sanity";
+
+export type SiteSettings = {
+  headline: string;
+  tagline: string;
+  aboutParagraphs: string[];
+  email: string;
+  location: string;
+  githubUrl: string;
+  linkedinUrl?: string;
+  cvUrl?: string;
+  seoDescription: string;
+};
+
+export type ProjectStatus = "completed" | "in-development" | "learning";
+
+export type Project = {
+  slug: string;
+  name: string;
+  status: ProjectStatus;
+  summary: string;
+  problem: string;
+  solution: string;
+  architecture: string[];
+  techStack: string[];
+  keyFeatures: string[];
+  whatILearned: string;
+  githubUrl?: string;
+  demoUrl?: string;
+};
+
+export type SkillGroup = {
+  title: string;
+  description: string;
+  skills: string[];
+  isCurrentlyLearning: boolean;
+};
+
+export type Post = {
+  slug: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  body: PortableTextBlock[];
+};
+
+export type Experience = {
+  role: string;
+  org: string;
+  location?: string;
+  startDate: string;
+  endDate: string;
+  bullets: string[];
+};
+
+export type Education = {
+  degree: string;
+  org: string;
+  year: string;
+};

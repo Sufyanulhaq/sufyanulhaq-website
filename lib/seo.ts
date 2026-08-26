@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "./site";
+import type { SiteSettings } from "./content-types";
 
 type PageMetaInput = {
   title: string;
@@ -38,19 +39,19 @@ export function pageMetadata({
   };
 }
 
-export function personJsonLd() {
+export function personJsonLd(settings: SiteSettings) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     name: site.name,
     url: site.url,
-    jobTitle: site.title,
+    jobTitle: settings.headline,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Liverpool",
+      addressLocality: settings.location,
       addressCountry: "GB",
     },
-    sameAs: [site.github],
+    sameAs: [settings.githubUrl, settings.linkedinUrl].filter(Boolean),
   };
 }
 

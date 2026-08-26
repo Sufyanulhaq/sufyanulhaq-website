@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { PortableText } from "@portabletext/react";
 import { Section } from "@/components/ui/Section";
-import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { getPosts, getPostBySlug } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
 
-export function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -14,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   return pageMetadata({
@@ -30,15 +31,21 @@ export default async function WritingPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
 
   return (
-    <Section className="pt-16 sm:pt-20">
+    <Section className="pt-16 sm:pt-20" reveal>
       <article className="prose prose-neutral max-w-2xl dark:prose-invert">
-        <p className="text-sm text-foreground/50">{post.date}</p>
+        <p className="text-sm text-foreground/50">
+          {new Date(post.publishedAt).toLocaleDateString("en-GB", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
         <h1>{post.title}</h1>
-        <MDXRemote source={post.content} />
+        <PortableText value={post.body} />
       </article>
     </Section>
   );

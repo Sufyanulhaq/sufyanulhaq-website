@@ -15,10 +15,10 @@ export function Button({
   external = false,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-colors";
+    "inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   const styles =
     variant === "primary"
-      ? "bg-foreground text-background hover:opacity-90"
+      ? "bg-accent text-accent-foreground hover:opacity-90"
       : "border border-black/15 dark:border-white/20 hover:bg-black/[.03] dark:hover:bg-white/[.06]";
 
   return (

@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { site } from "./site";
+import { getSiteSettings } from "./content";
 
 type ContactPayload = {
   name: string;
@@ -15,11 +16,12 @@ export async function sendContactEmail(payload: ContactPayload) {
     throw new Error("RESEND_API_KEY is not configured");
   }
 
+  const settings = await getSiteSettings();
   const resend = new Resend(apiKey);
 
   await resend.emails.send({
     from: `${site.name} Website <onboarding@resend.dev>`,
-    to: site.email,
+    to: settings.email,
     replyTo: payload.email,
     subject: `New contact form message from ${payload.name}`,
     text: [

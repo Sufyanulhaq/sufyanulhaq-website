@@ -1,25 +1,41 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { getSiteSettings } from "@/lib/content";
 import { Container } from "./Container";
 
-export function Footer() {
+export async function Footer() {
+  const settings = await getSiteSettings();
+
   return (
     <footer className="mt-24 border-t border-black/10 dark:border-white/10">
       <Container className="flex flex-col gap-4 py-10 text-sm text-foreground/60 sm:flex-row sm:items-center sm:justify-between">
         <p>
           &copy; {new Date().getFullYear()} {site.name}. Based in{" "}
-          {site.location}.
+          {settings.location}.
         </p>
         <div className="flex gap-6">
           <Link
-            href={site.github}
+            href={settings.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground"
+            className="rounded-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             GitHub
           </Link>
-          <a href={`mailto:${site.email}`} className="hover:text-foreground">
+          {settings.linkedinUrl && (
+            <Link
+              href={settings.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              LinkedIn
+            </Link>
+          )}
+          <a
+            href={`mailto:${settings.email}`}
+            className="rounded-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
             Email
           </a>
         </div>

@@ -1,6 +1,6 @@
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ContactForm";
-import { site } from "@/lib/site";
+import { getSiteSettings } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -10,9 +10,11 @@ export const metadata = pageMetadata({
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
+
   return (
-    <Section className="pt-16 sm:pt-20">
+    <Section className="pt-16 sm:pt-20" reveal>
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -27,26 +29,39 @@ export default function ContactPage() {
             <p>
               <span className="text-foreground/50">Email: </span>
               <a
-                href={`mailto:${site.email}`}
+                href={`mailto:${settings.email}`}
                 className="font-medium hover:underline"
               >
-                {site.email}
+                {settings.email}
               </a>
             </p>
             <p>
               <span className="text-foreground/50">GitHub: </span>
               <a
-                href={site.github}
+                href={settings.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium hover:underline"
               >
-                {site.github.replace("https://", "")}
+                {settings.githubUrl.replace("https://", "")}
               </a>
             </p>
+            {settings.linkedinUrl && (
+              <p>
+                <span className="text-foreground/50">LinkedIn: </span>
+                <a
+                  href={settings.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                >
+                  {settings.linkedinUrl.replace("https://www.", "")}
+                </a>
+              </p>
+            )}
             <p>
               <span className="text-foreground/50">Based in: </span>
-              {site.location}
+              {settings.location}
             </p>
           </div>
         </div>
