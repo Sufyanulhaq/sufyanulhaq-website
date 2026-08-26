@@ -106,7 +106,7 @@ export default async function AboutPage() {
         </h2>
         <p className="mt-3 max-w-xl text-foreground/70">
           I&apos;m open to software, web, and cloud-leaning developer roles,
-          internships, and freelance projects.
+          freelance projects, and technical collaborations.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Button href="/contact">Get in Touch</Button>

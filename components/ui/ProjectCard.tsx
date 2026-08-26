@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics/react";
 import type { Project } from "@/lib/content-types";
 import { projectMockups } from "@/lib/project-mockups";
 import { InterfaceMockup } from "./InterfaceMockup";
@@ -24,13 +25,14 @@ function initials(name: string) {
 }
 
 export function ProjectCard({ project }: { project: Project }) {
-  const badge = statusLabel[project.status];
+  const badge = project.tag || statusLabel[project.status];
   const mockupVariant = projectMockups[project.slug];
 
   return (
     <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.18 }}>
       <Link
         href={`/projects/${project.slug}`}
+        onClick={() => track("Project Card Click", { project: project.name })}
         className="card-surface group block overflow-hidden rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         <div className="relative flex h-36 items-center justify-center overflow-hidden bg-muted">
@@ -65,7 +67,7 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
         <div className="p-5">
-          <div className="mb-2 flex items-center justify-between gap-3">
+          <div className="mb-2 flex flex-wrap items-center gap-2">
             <h3 className="font-semibold">{project.name}</h3>
             {badge && (
               <span className="shrink-0 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">

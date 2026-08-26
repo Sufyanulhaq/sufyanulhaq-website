@@ -17,7 +17,7 @@ export const seedSiteSettings: SiteSettings = {
   aboutParagraphs: [
     "I'm Sufyan Ul Haq, a software developer based in Liverpool, UK. My strongest background is in web development — HTML, CSS, JavaScript, PHP, and more recently TypeScript, React, and Next.js — and I'm continuously expanding into cloud computing, automation, and modern infrastructure.",
     "I enjoy turning practical problems into software, and I care about how something is built as much as whether it works — clean structure, sensible architecture, and code I can explain and defend.",
-    "I'm open to software, web, and cloud-leaning developer roles, internships, and freelance projects. Below is what I've built, what I'm building now, and what I'm working on next.",
+    "I'm open to software, web, and cloud-leaning developer roles, freelance projects, and technical collaborations. Below is what I've built, what I'm building now, and what I'm working on next.",
   ],
   email: "hello@sufyanulhaq.com",
   location: "Liverpool, UK",
@@ -130,6 +130,7 @@ export const seedProjects: Project[] = [
     slug: "pulse",
     name: "Pulse",
     status: "completed",
+    tag: "Personal Concept · UI & Motion Project",
     summary:
       "An animation-heavy landing page concept for a fictional focus-tracking app, built to explore scroll-linked motion design and accessible animation.",
     problem:
@@ -161,28 +162,28 @@ export const seedProjects: Project[] = [
     name: "Hotel Booking Website",
     status: "completed",
     summary:
-      "A full-stack hotel booking application covering room search, booking, and payment handling.",
+      "A full-stack hotel booking application covering room search, booking, and a sandbox payment integration.",
     problem:
       "Hotel booking flows involve more moving parts than they first appear — searching availability, holding a room selection, collecting payment, and confirming or refunding a booking without losing data along the way.",
     solution:
-      "Built a multi-page PHP application backed by a MySQL database, covering the full booking lifecycle: room search and detail pages, a booking and confirmation flow, and payment handling including a refund path.",
+      "Built a multi-page PHP application backed by a MySQL database, covering the full booking lifecycle: room search and detail pages, a booking and confirmation flow, and a payment integration built against Instamojo's test/sandbox API, including a webhook-verified confirmation step and a refund flow. No real money moves through it — it's a working integration, not a live payment processor.",
     architecture: [
       "Browser",
       "PHP (server-rendered pages)",
       "MySQL database",
-      "Payment webhook",
+      "Payment webhook (sandbox)",
       "Hosting",
     ],
     techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     keyFeatures: [
       "Room search and detail pages",
       "Booking and confirmation flow",
-      "Payment processing with a webhook handler",
-      "Refund handling",
+      "Payment integration via Instamojo's sandbox API, with HMAC-verified webhook confirmation",
+      "Refund flow via Instamojo's test API",
       "Contact and newsletter forms",
     ],
     whatILearned:
-      "Structuring a multi-page PHP application around a relational schema, and keeping a multi-step flow — search, book, pay, confirm — consistent when any step can fail.",
+      "Structuring a multi-page PHP application around a relational schema, keeping a multi-step flow — search, book, pay, confirm — consistent when any step can fail, and integrating a third-party payment API end to end, including webhook signature verification.",
     githubUrl:
       "https://github.com/Sufyanulhaq/Hotel-Booking-Website-Working-Code-master",
     // No demoUrl: the Vercel deployment serves the raw .php source instead
@@ -291,9 +292,9 @@ export const seedSkillGroups: SkillGroup[] = [
     isCurrentlyLearning: false,
   },
   {
-    title: "Cloud & Infrastructure",
+    title: "Cloud & Deployment",
     description: "Deployment and infrastructure fundamentals.",
-    skills: ["AWS Fundamentals", "Linux Fundamentals", "Vercel Deployment"],
+    skills: ["AWS Fundamentals", "Linux Fundamentals", "Deployment", "DNS", "Vercel"],
     isCurrentlyLearning: false,
   },
   {
@@ -319,7 +320,7 @@ export const seedExperience: Experience[] = [
       "Built and maintained web applications end to end — frontend UI, backend logic, and database-driven features using HTML, CSS, JavaScript, and PHP.",
       "Integrated APIs and handled data flow between the frontend and backend to support real application features.",
       "Debugged production issues and shipped fixes, working directly with a team rather than in isolation.",
-      "Worked from client requirements through to a deployed, working feature — the same problem-solving approach I bring to software and automation work now.",
+      "Took features from client requirements through to a deployed, working release in a live production environment.",
     ],
   },
   {
@@ -329,7 +330,7 @@ export const seedExperience: Experience[] = [
     bullets: [
       "Converted visual designs into working, responsive HTML/CSS interfaces.",
       "Defined technical requirements for e-commerce functionality, translating client needs into buildable site concepts.",
-      "Got early, hands-on exposure to the gap between design intent and technical implementation — a lesson that still shapes how I approach UI work.",
+      "Worked directly with developers on design-to-implementation handoff, an early grounding in how technical constraints shape UI decisions.",
     ],
   },
 ];

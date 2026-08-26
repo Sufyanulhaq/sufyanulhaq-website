@@ -17,6 +17,7 @@ export type Project = {
   slug: string;
   name: string;
   status: ProjectStatus;
+  tag?: string;
   summary: string;
   problem: string;
   solution: string;

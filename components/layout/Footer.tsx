@@ -45,25 +45,23 @@ export async function Footer() {
           </p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link
+              <TrackedLink
                 href={settings.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                event="GitHub Click (Footer)"
                 className={linkClass}
               >
                 GitHub
-              </Link>
+              </TrackedLink>
             </li>
             {settings.linkedinUrl && (
               <li>
-                <Link
+                <TrackedLink
                   href={settings.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  event="LinkedIn Click (Footer)"
                   className={linkClass}
                 >
                   LinkedIn
-                </Link>
+                </TrackedLink>
               </li>
             )}
           </ul>

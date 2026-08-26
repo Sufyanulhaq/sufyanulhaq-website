@@ -33,6 +33,13 @@ export const project = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "tag",
+      title: "Tag (optional badge)",
+      type: "string",
+      description:
+        'Short label shown next to the project name, e.g. "Personal Concept · UI & Motion" for a fictional/practice project that isn\'t real client work.',
+    }),
+    defineField({
       name: "summary",
       title: "Summary",
       type: "text",

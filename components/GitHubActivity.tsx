@@ -7,7 +7,15 @@ type Repo = {
   pushed_at: string;
 };
 
-const FEATURED_REPOS = ["pulse", "ROOF", "butcher-shop", "Hotel-Booking-Website-Working-Code-master"];
+// Curated rather than pulled by raw API sort order — prioritises current
+// and technically strongest repos over whatever happens to be most
+// recently pushed, so this doesn't read as an inactive account.
+const FEATURED_REPOS = [
+  "sufyanulhaq-website",
+  "pulse",
+  "ROOF",
+  "Hotel-Booking-Website-Working-Code-master",
+];
 
 async function getRepos(): Promise<Repo[]> {
   try {

@@ -200,14 +200,19 @@ export default async function Home() {
           Building &amp; Learning in Public
         </h2>
         <p className="mt-3 max-w-xl text-foreground/70">
-          A few repositories I&apos;m actively working on, pulled live from
-          GitHub.
+          A selection of repositories — current work and completed builds —
+          pulled live from GitHub.
         </p>
         <div className="mt-8">
           <GitHubActivity />
         </div>
         <div className="mt-6">
-          <Button href={settings.githubUrl} variant="secondary" external>
+          <Button
+            href={settings.githubUrl}
+            variant="secondary"
+            external
+            trackEvent="GitHub Profile Click (Home)"
+          >
             View GitHub Profile
           </Button>
         </div>

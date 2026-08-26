@@ -1,6 +1,7 @@
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/ContactForm";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { getSiteSettings } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
 import { whatsappUrl } from "@/lib/site";
@@ -8,7 +9,7 @@ import { whatsappUrl } from "@/lib/site";
 export const metadata = pageMetadata({
   title: "Contact",
   description:
-    "Get in touch with Sufyan Ul Haq about developer roles, internships, or freelance web development projects.",
+    "Get in touch with Sufyan Ul Haq about developer roles, freelance web development projects, or technical collaborations.",
   path: "/contact",
 });
 
@@ -41,47 +42,46 @@ export default async function ContactPage() {
             {settings.whatsapp && (
               <p>
                 <span className="text-foreground/50">WhatsApp: </span>
-                <a
+                <TrackedLink
                   href={whatsappUrl(settings.whatsapp)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  event="WhatsApp Click (Contact Details)"
                   className="font-medium hover:underline"
                 >
                   +{settings.whatsapp.replace(/(\d{2})(\d{4})(\d{6})/, "$1 $2 $3")}
-                </a>
+                </TrackedLink>
               </p>
             )}
             <p>
               <span className="text-foreground/50">Email: </span>
-              <a
+              <TrackedLink
                 href={`mailto:${settings.email}`}
+                event="Email Click (Contact Details)"
+                external={false}
                 className="font-medium hover:underline"
               >
                 {settings.email}
-              </a>
+              </TrackedLink>
             </p>
             <p>
               <span className="text-foreground/50">GitHub: </span>
-              <a
+              <TrackedLink
                 href={settings.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                event="GitHub Click (Contact)"
                 className="font-medium hover:underline"
               >
                 {settings.githubUrl.replace("https://", "")}
-              </a>
+              </TrackedLink>
             </p>
             {settings.linkedinUrl && (
               <p>
                 <span className="text-foreground/50">LinkedIn: </span>
-                <a
+                <TrackedLink
                   href={settings.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  event="LinkedIn Click (Contact)"
                   className="font-medium hover:underline"
                 >
                   {settings.linkedinUrl.replace("https://www.", "")}
-                </a>
+                </TrackedLink>
               </p>
             )}
             <p>

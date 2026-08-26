@@ -20,7 +20,7 @@ export async function sendContactEmail(payload: ContactPayload) {
   const resend = new Resend(apiKey);
 
   await resend.emails.send({
-    from: `${site.name} Website <onboarding@resend.dev>`,
+    from: `${site.name} Website <hello@sufyanulhaq.com>`,
     to: settings.email,
     replyTo: payload.email,
     subject: `New contact form message from ${payload.name}`,

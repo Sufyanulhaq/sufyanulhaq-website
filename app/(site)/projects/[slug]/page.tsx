@@ -45,7 +45,7 @@ export default async function ProjectPage({
   const project = await getProjectBySlug(slug);
   if (!project) notFound();
 
-  const badge = statusLabel[project.status];
+  const badge = project.tag || statusLabel[project.status];
   const mockupVariant = projectMockups[project.slug];
 
   return (
@@ -66,12 +66,21 @@ export default async function ProjectPage({
 
       <div className="mt-8 flex flex-wrap gap-4">
         {project.githubUrl && (
-          <Button href={project.githubUrl} external>
+          <Button
+            href={project.githubUrl}
+            external
+            trackEvent={`GitHub Click (Project: ${project.name})`}
+          >
             View Code on GitHub
           </Button>
         )}
         {project.demoUrl && (
-          <Button href={project.demoUrl} variant="secondary" external>
+          <Button
+            href={project.demoUrl}
+            variant="secondary"
+            external
+            trackEvent={`Live Demo Click (Project: ${project.name})`}
+          >
             Live Demo
           </Button>
         )}

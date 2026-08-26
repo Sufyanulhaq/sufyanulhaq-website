@@ -22,9 +22,9 @@ export default async function ProjectsPage() {
           Selected Projects
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-foreground/70">
-          A small set of projects, chosen deliberately over a long list.
-          Each one is real, working code — not client work, not a case
-          study built for marketing.
+          A curated selection of projects demonstrating my approach to
+          software development, web applications, UI, APIs, and modern
+          technologies.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {completed.map((project) => (
