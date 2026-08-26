@@ -190,9 +190,16 @@ export default async function Home() {
             like to hear from you.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button href="/contact">Start a Project</Button>
+            <Button href="/contact" trackEvent="Start a Project (Home)">
+              Start a Project
+            </Button>
             {settings.whatsapp && (
-              <Button href={whatsappUrl(settings.whatsapp)} variant="secondary" external>
+              <Button
+                href={whatsappUrl(settings.whatsapp)}
+                variant="secondary"
+                external
+                trackEvent="WhatsApp Click (Home)"
+              >
                 Message on WhatsApp
               </Button>
             )}

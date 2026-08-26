@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics/react";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -29,6 +30,7 @@ export function ContactForm() {
       }
 
       setStatus("success");
+      track("Contact Form Submitted");
       form.reset();
     } catch (err) {
       setStatus("error");

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { site, whatsappUrl } from "@/lib/site";
 import { getSiteSettings } from "@/lib/content";
+import { Logo } from "@/components/Logo";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { Container } from "./Container";
 
 export async function Footer() {
@@ -13,7 +15,10 @@ export async function Footer() {
     <footer className="mt-24 border-t border-border">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-1">
-          <p className="font-semibold tracking-tight">{site.name}</p>
+          <div className="flex items-center gap-2.5">
+            <Logo size={24} />
+            <p className="font-semibold tracking-tight">{site.name}</p>
+          </div>
           <p className="mt-3 max-w-xs text-sm text-foreground/60">
             {settings.tagline}
           </p>
@@ -70,20 +75,24 @@ export async function Footer() {
           </p>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a href={`mailto:${settings.email}`} className={linkClass}>
+              <TrackedLink
+                href={`mailto:${settings.email}`}
+                event="Email Click (Footer)"
+                className={linkClass}
+                external={false}
+              >
                 {settings.email}
-              </a>
+              </TrackedLink>
             </li>
             {settings.whatsapp && (
               <li>
-                <Link
+                <TrackedLink
                   href={whatsappUrl(settings.whatsapp)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  event="WhatsApp Click (Footer)"
                   className={linkClass}
                 >
                   WhatsApp
-                </Link>
+                </TrackedLink>
               </li>
             )}
           </ul>

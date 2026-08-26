@@ -28,9 +28,9 @@ export default async function ServicesPage() {
           I can&apos;t genuinely deliver.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Button href="/contact">Start a Project</Button>
+          <Button href="/contact" trackEvent="Start a Project (Services)">Start a Project</Button>
           {settings.whatsapp && (
-            <Button href={whatsappUrl(settings.whatsapp)} variant="secondary" external>
+            <Button href={whatsappUrl(settings.whatsapp)} variant="secondary" external trackEvent="WhatsApp Click (Services)">
               Message on WhatsApp
             </Button>
           )}
@@ -93,7 +93,7 @@ export default async function ServicesPage() {
               )}
 
               <div className="mt-5">
-                <Button href="/contact" variant="secondary">
+                <Button href="/contact" variant="secondary" trackEvent="Get in Touch (Service Card)">
                   Get in Touch
                 </Button>
               </div>
@@ -112,9 +112,9 @@ export default async function ServicesPage() {
           deliver right now.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Button href="/contact">Start a Project</Button>
+          <Button href="/contact" trackEvent="Start a Project (Services)">Start a Project</Button>
           {settings.whatsapp && (
-            <Button href={whatsappUrl(settings.whatsapp)} variant="secondary" external>
+            <Button href={whatsappUrl(settings.whatsapp)} variant="secondary" external trackEvent="WhatsApp Click (Services)">
               Message on WhatsApp
             </Button>
           )}

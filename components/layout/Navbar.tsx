@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
+import { Logo } from "@/components/Logo";
 import { Container } from "./Container";
 
 export function Navbar() {
@@ -15,9 +16,10 @@ export function Navbar() {
       <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 py-4 sm:h-16 sm:flex-nowrap sm:py-0">
         <Link
           href="/"
-          className="shrink-0 rounded-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="flex shrink-0 items-center gap-2.5 rounded-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          {site.name}
+          <Logo size={28} />
+          <span>{site.name}</span>
         </Link>
         <div className="flex flex-1 flex-wrap items-center justify-end gap-x-6 gap-y-2">
           <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">

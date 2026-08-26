@@ -29,10 +29,10 @@ export default async function ContactPage() {
           </p>
           {settings.whatsapp && (
             <div className="mt-6 flex flex-wrap gap-4">
-              <Button href={whatsappUrl(settings.whatsapp)} external>
+              <Button href={whatsappUrl(settings.whatsapp)} external trackEvent="WhatsApp Click (Contact)">
                 Message on WhatsApp
               </Button>
-              <Button href={`mailto:${settings.email}`} variant="secondary">
+              <Button href={`mailto:${settings.email}`} variant="secondary" trackEvent="Email Click (Contact)">
                 Email Me
               </Button>
             </div>
