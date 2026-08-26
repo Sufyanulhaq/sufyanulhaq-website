@@ -142,6 +142,7 @@ export const seedProjects: Project[] = [
     ],
     whatILearned:
       "Designing a content model that's simple enough to actually maintain, and the Next.js App Router patterns for combining static generation with CMS-driven content.",
+    githubUrl: "https://github.com/Sufyanulhaq/sufyanulhaq-website",
   },
 ];
 
