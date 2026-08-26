@@ -8,7 +8,6 @@ export type SiteSettings = {
   linkedinUrl?: string;
   whatsapp?: string;
   cvUrl?: string;
-  photoUrl?: string;
   seoDescription: string;
 };
 

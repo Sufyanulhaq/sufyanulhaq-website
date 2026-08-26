@@ -1,15 +1,8 @@
-import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { GitHubActivity } from "@/components/GitHubActivity";
-import {
-  HeroReveal,
-  HeroP,
-  HeroH1,
-  HeroDiv,
-  HeroImageReveal,
-} from "@/components/motion/Hero";
+import { HeroReveal, HeroP, HeroH1, HeroDiv } from "@/components/motion/Hero";
 import {
   getSiteSettings,
   getProjects,
@@ -18,7 +11,7 @@ import {
   getServices,
 } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
-import { whatsappUrl, site } from "@/lib/site";
+import { whatsappUrl } from "@/lib/site";
 import { Code2, Cloud, Workflow } from "lucide-react";
 
 export async function generateMetadata() {
@@ -96,43 +89,22 @@ export default async function Home() {
     <>
       <Section className="pt-20 sm:pt-28">
         <HeroReveal>
-          <div className="grid items-center gap-12 lg:grid-cols-[1.25fr_1fr]">
-            <div>
-              <HeroP className="mb-4 text-sm font-medium text-foreground/60">
-                {settings.location}
-              </HeroP>
-              <HeroH1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-                {settings.headline}
-              </HeroH1>
-              <HeroP className="mt-6 max-w-xl text-lg text-foreground/70">
-                {settings.tagline}
-              </HeroP>
-              <HeroDiv className="mt-8 flex flex-wrap gap-4">
-                <Button href="/projects">View My Work</Button>
-                <Button href="/contact" variant="secondary">
-                  Let&apos;s Work Together
-                </Button>
-              </HeroDiv>
-            </div>
-
-            {settings.photoUrl && (
-              <HeroImageReveal className="relative mx-auto w-full max-w-xs lg:max-w-sm">
-                <div
-                  className="absolute inset-0 translate-x-3 translate-y-3 rounded-[28px] bg-accent/15"
-                  aria-hidden="true"
-                />
-                <div className="relative overflow-hidden rounded-[28px] border border-border">
-                  <Image
-                    src={settings.photoUrl}
-                    alt={site.name}
-                    width={480}
-                    height={600}
-                    className="h-auto w-full object-cover"
-                    priority
-                  />
-                </div>
-              </HeroImageReveal>
-            )}
+          <div>
+            <HeroP className="mb-4 text-sm font-medium text-foreground/60">
+              {settings.location}
+            </HeroP>
+            <HeroH1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+              {settings.headline}
+            </HeroH1>
+            <HeroP className="mt-6 max-w-xl text-lg text-foreground/70">
+              {settings.tagline}
+            </HeroP>
+            <HeroDiv className="mt-8 flex flex-wrap gap-4">
+              <Button href="/projects">View My Work</Button>
+              <Button href="/contact" variant="secondary">
+                Let&apos;s Work Together
+              </Button>
+            </HeroDiv>
           </div>
         </HeroReveal>
       </Section>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import {
@@ -8,7 +7,6 @@ import {
   getSkillGroups,
 } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "About",
@@ -28,34 +26,15 @@ export default async function AboutPage() {
   return (
     <>
       <Section className="pt-16 sm:pt-20" reveal>
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-start">
-          <div>
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              About
-            </h1>
-            <div className="mt-6 max-w-2xl space-y-4 text-lg text-foreground/70">
-              {settings.aboutParagraphs.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </div>
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            About
+          </h1>
+          <div className="mt-6 max-w-2xl space-y-4 text-lg text-foreground/70">
+            {settings.aboutParagraphs.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
           </div>
-          {settings.photoUrl && (
-            <div className="relative mx-auto w-full max-w-[280px]">
-              <div
-                className="absolute inset-0 translate-x-2.5 translate-y-2.5 rounded-[24px] bg-accent/15"
-                aria-hidden="true"
-              />
-              <div className="relative overflow-hidden rounded-[24px] border border-border">
-                <Image
-                  src={settings.photoUrl}
-                  alt={site.name}
-                  width={400}
-                  height={500}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-            </div>
-          )}
         </div>
       </Section>
 

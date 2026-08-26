@@ -11,7 +11,6 @@ export const siteSettingsQuery = defineQuery(`
     linkedinUrl,
     whatsapp,
     "cvUrl": cvFile.asset->url,
-    "photoUrl": photo.asset->url,
     seoDescription
   }
 `);
