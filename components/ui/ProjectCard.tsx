@@ -29,13 +29,17 @@ export function ProjectCard({ project }: { project: Project }) {
   const mockupVariant = projectMockups[project.slug];
 
   return (
-    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.18 }}>
+    <motion.div
+      className="h-full"
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.18 }}
+    >
       <Link
         href={`/projects/${project.slug}`}
         onClick={() => track("Project Card Click", { project: project.name })}
-        className="card-surface group block overflow-hidden rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        className="card-surface group flex h-full flex-col overflow-hidden rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
-        <div className="relative flex h-36 items-center justify-center overflow-hidden bg-muted">
+        <div className="relative flex h-36 shrink-0 items-center justify-center overflow-hidden bg-muted">
           {project.screenshotUrl ? (
             <Image
               src={project.screenshotUrl}
@@ -66,7 +70,7 @@ export function ProjectCard({ project }: { project: Project }) {
             </>
           )}
         </div>
-        <div className="p-5">
+        <div className="flex flex-1 flex-col p-5">
           <div className="mb-2">
             <h3 className="font-semibold">{project.name}</h3>
             {badge && (
@@ -75,8 +79,10 @@ export function ProjectCard({ project }: { project: Project }) {
               </span>
             )}
           </div>
-          <p className="text-sm text-foreground/70">{project.summary}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <p className="line-clamp-3 text-sm text-foreground/70">
+            {project.summary}
+          </p>
+          <div className="mt-auto flex flex-wrap gap-2 pt-4">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
