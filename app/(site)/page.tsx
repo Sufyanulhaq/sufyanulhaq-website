@@ -1,7 +1,15 @@
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { HeroReveal, HeroP, HeroH1, HeroDiv } from "@/components/motion/Hero";
+import { GitHubActivity } from "@/components/GitHubActivity";
+import {
+  HeroReveal,
+  HeroP,
+  HeroH1,
+  HeroDiv,
+  HeroImageReveal,
+} from "@/components/motion/Hero";
 import {
   getSiteSettings,
   getProjects,
@@ -10,7 +18,7 @@ import {
   getServices,
 } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
-import { whatsappUrl } from "@/lib/site";
+import { whatsappUrl, site } from "@/lib/site";
 import { Code2, Cloud, Workflow } from "lucide-react";
 
 export async function generateMetadata() {
@@ -47,18 +55,30 @@ const process = [
   {
     step: "01",
     title: "Understand",
-    description: "What are we actually solving, and for whom — before any code.",
+    description: "Understand the problem, requirements and users — before any code.",
   },
   {
     step: "02",
     title: "Build",
-    description: "Working software, built to be explained and defended, not just shipped.",
+    description: "Design and develop the solution, built to be explained and defended.",
   },
   {
     step: "03",
-    title: "Support",
-    description: "Deployed properly, with a real point of contact after launch.",
+    title: "Deploy",
+    description: "Get it running properly in a real production environment.",
   },
+  {
+    step: "04",
+    title: "Support",
+    description: "Maintain, improve, and troubleshoot after launch.",
+  },
+];
+
+const openTo = [
+  "Software Development",
+  "Cloud & Infrastructure Opportunities",
+  "Freelance Projects",
+  "Technical Collaborations",
 ];
 
 export default async function Home() {
@@ -76,21 +96,44 @@ export default async function Home() {
     <>
       <Section className="pt-20 sm:pt-28">
         <HeroReveal>
-          <HeroP className="mb-4 text-sm font-medium text-foreground/60">
-            {settings.location}
-          </HeroP>
-          <HeroH1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-            {settings.headline}
-          </HeroH1>
-          <HeroP className="mt-6 max-w-xl text-lg text-foreground/70">
-            {settings.tagline}
-          </HeroP>
-          <HeroDiv className="mt-8 flex flex-wrap gap-4">
-            <Button href="/projects">Selected Projects</Button>
-            <Button href="/contact" variant="secondary">
-              Work With Me
-            </Button>
-          </HeroDiv>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.25fr_1fr]">
+            <div>
+              <HeroP className="mb-4 text-sm font-medium text-foreground/60">
+                {settings.location}
+              </HeroP>
+              <HeroH1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+                {settings.headline}
+              </HeroH1>
+              <HeroP className="mt-6 max-w-xl text-lg text-foreground/70">
+                {settings.tagline}
+              </HeroP>
+              <HeroDiv className="mt-8 flex flex-wrap gap-4">
+                <Button href="/projects">View My Work</Button>
+                <Button href="/contact" variant="secondary">
+                  Let&apos;s Work Together
+                </Button>
+              </HeroDiv>
+            </div>
+
+            {settings.photoUrl && (
+              <HeroImageReveal className="relative mx-auto w-full max-w-xs lg:max-w-sm">
+                <div
+                  className="absolute inset-0 translate-x-3 translate-y-3 rounded-[28px] bg-accent/15"
+                  aria-hidden="true"
+                />
+                <div className="relative overflow-hidden rounded-[28px] border border-border">
+                  <Image
+                    src={settings.photoUrl}
+                    alt={site.name}
+                    width={480}
+                    height={600}
+                    className="h-auto w-full object-cover"
+                    priority
+                  />
+                </div>
+              </HeroImageReveal>
+            )}
+          </div>
         </HeroReveal>
       </Section>
 
@@ -167,7 +210,7 @@ export default async function Home() {
 
       <Section className="border-t border-border" reveal>
         <h2 className="text-2xl font-semibold tracking-tight">How I Work</h2>
-        <div className="mt-8 grid gap-8 sm:grid-cols-3">
+        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {process.map((item) => (
             <div key={item.step}>
               <span className="font-mono text-sm text-accent">{item.step}</span>
@@ -176,6 +219,38 @@ export default async function Home() {
                 {item.description}
               </p>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="border-t border-border" reveal>
+        <h2 className="text-2xl font-semibold tracking-tight">
+          Building &amp; Learning in Public
+        </h2>
+        <p className="mt-3 max-w-xl text-foreground/70">
+          A few repositories I&apos;m actively working on, pulled live from
+          GitHub.
+        </p>
+        <div className="mt-8">
+          <GitHubActivity />
+        </div>
+        <div className="mt-6">
+          <Button href={settings.githubUrl} variant="secondary" external>
+            View GitHub Profile
+          </Button>
+        </div>
+      </Section>
+
+      <Section className="border-t border-border" reveal>
+        <h2 className="text-2xl font-semibold tracking-tight">Open To</h2>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {openTo.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-accent/30 bg-accent/5 px-3.5 py-1.5 text-sm text-foreground/80"
+            >
+              {item}
+            </span>
           ))}
         </div>
       </Section>

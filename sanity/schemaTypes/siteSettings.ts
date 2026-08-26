@@ -44,6 +44,13 @@ export const siteSettings = defineType({
       options: { accept: ".pdf" },
     }),
     defineField({
+      name: "photo",
+      title: "Portrait Photo",
+      type: "image",
+      options: { hotspot: true },
+      description: "Professional portrait used in the hero and About page.",
+    }),
+    defineField({
       name: "seoDescription",
       title: "Default SEO Description",
       type: "text",

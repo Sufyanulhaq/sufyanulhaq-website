@@ -13,6 +13,16 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
+const imageItem = {
+  hidden: { opacity: 0, scale: 0.96, y: 12 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
+};
+
 export function HeroReveal({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -63,6 +73,14 @@ export function HeroH1({ className = "", children }: { className?: string; child
 export function HeroDiv({ className = "", children }: { className?: string; children: ReactNode }) {
   return (
     <motion.div className={className} variants={item}>
+      {children}
+    </motion.div>
+  );
+}
+
+export function HeroImageReveal({ className = "", children }: { className?: string; children: ReactNode }) {
+  return (
+    <motion.div className={className} variants={imageItem}>
       {children}
     </motion.div>
   );
