@@ -10,20 +10,20 @@ import type {
 } from "@/lib/content-types";
 
 export const seedSiteSettings: SiteSettings = {
-  headline: "Web Developer",
+  headline: "Software Developer",
   tagline:
-    "Web Developer focused on modern web applications and continuously expanding into cloud technologies and automation.",
+    "Software developer with a growing focus on cloud computing, automation, and modern digital systems.",
   aboutParagraphs: [
-    "I'm Sufyan Ul Haq, a web developer based in Liverpool, UK. I build web applications with HTML, CSS, JavaScript, and PHP, and more recently TypeScript and Next.js, and I'm continuously expanding into cloud technologies and automation.",
+    "I'm Sufyan Ul Haq, a software developer based in Liverpool, UK. My strongest background is in web development — HTML, CSS, JavaScript, PHP, and more recently TypeScript, React, and Next.js — and I'm continuously expanding into cloud computing, automation, and modern infrastructure.",
     "I enjoy turning practical problems into software, and I care about how something is built as much as whether it works — clean structure, sensible architecture, and code I can explain and defend.",
-    "I'm open to developer roles, internships, and freelance web projects. Below is what I've built, what I'm building now, and what I'm working on next.",
+    "I'm open to software, web, and cloud-leaning developer roles, internships, and freelance projects. Below is what I've built, what I'm building now, and what I'm working on next.",
   ],
   email: "hello@sufyanulhaq.com",
   location: "Liverpool, UK",
   githubUrl: "https://github.com/Sufyanulhaq",
   linkedinUrl: "https://www.linkedin.com/in/sufyanulhaq/",
   seoDescription:
-    "Sufyan Ul Haq is a web developer based in Liverpool, UK, building modern web applications and expanding into cloud computing and automation.",
+    "Sufyan Ul Haq is a software developer based in Liverpool, UK, building modern web applications and expanding into cloud computing, automation, and infrastructure.",
 };
 
 export const seedProjects: Project[] = [
@@ -178,34 +178,36 @@ export const seedProjects: Project[] = [
 
 export const seedSkillGroups: SkillGroup[] = [
   {
-    title: "Web Development",
-    description: "Core technologies used day to day.",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "Responsive Design"],
-    isCurrentlyLearning: false,
-  },
-  {
-    title: "Programming & Data",
-    description: "Languages and data tools used in projects.",
-    skills: ["PHP", "SQL", "MySQL"],
-    isCurrentlyLearning: false,
-  },
-  {
-    title: "Tools",
-    description: "Day-to-day development tools.",
-    skills: ["Git", "GitHub", "VS Code"],
-    isCurrentlyLearning: false,
-  },
-  {
-    title: "Currently Learning",
-    description:
-      "Areas I'm actively developing skills in as I expand beyond core web development.",
+    title: "Development",
+    description: "Core languages and frameworks used day to day.",
     skills: [
-      "Cloud Computing (AWS fundamentals)",
-      "Next.js & React",
-      "Linux basics",
-      "Automation with APIs and scripts",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "PHP",
+      "HTML/CSS",
+      "Responsive Web Development",
     ],
-    isCurrentlyLearning: true,
+    isCurrentlyLearning: false,
+  },
+  {
+    title: "Cloud & Infrastructure",
+    description: "Deployment and infrastructure fundamentals.",
+    skills: ["AWS Fundamentals", "Linux Fundamentals", "Vercel Deployment"],
+    isCurrentlyLearning: false,
+  },
+  {
+    title: "APIs & Automation",
+    description: "Connecting services and automating repetitive work.",
+    skills: ["REST APIs", "API Integration", "Scripting", "Automation"],
+    isCurrentlyLearning: false,
+  },
+  {
+    title: "Tools & Data",
+    description: "Version control, workflow, and data.",
+    skills: ["Git", "GitHub", "SQL", "MySQL"],
+    isCurrentlyLearning: false,
   },
 ];
 
@@ -214,24 +216,21 @@ export const seedExperience: Experience[] = [
     role: "Junior Web Developer",
     org: "NextTech Solutions",
     location: "Rawalpindi, Pakistan",
-    startDate: "Mar 2021",
-    endDate: "Mar 2022",
     bullets: [
-      "Developed and maintained web applications using HTML, CSS, JavaScript, and PHP.",
-      "Worked with the team to build functional, user-friendly features.",
-      "Diagnosed and fixed bugs to keep development and testing running smoothly.",
+      "Built and maintained web applications end to end — frontend UI, backend logic, and database-driven features using HTML, CSS, JavaScript, and PHP.",
+      "Integrated APIs and handled data flow between the frontend and backend to support real application features.",
+      "Debugged production issues and shipped fixes, working directly with a team rather than in isolation.",
+      "Worked from client requirements through to a deployed, working feature — the same problem-solving approach I bring to software and automation work now.",
     ],
   },
   {
     role: "Web Designing Intern",
     org: "NextTech Solutions",
     location: "Islamabad, Pakistan",
-    startDate: "Jul 2020",
-    endDate: "Nov 2020",
     bullets: [
-      "Designed visuals in Photoshop and converted them into working HTML/CSS pages.",
-      "Helped define coding requirements for e-commerce functionality.",
-      "Translated client requirements into site concepts during project planning.",
+      "Converted visual designs into working, responsive HTML/CSS interfaces.",
+      "Defined technical requirements for e-commerce functionality, translating client needs into buildable site concepts.",
+      "Got early, hands-on exposure to the gap between design intent and technical implementation — a lesson that still shapes how I approach UI work.",
     ],
   },
 ];
@@ -244,7 +243,7 @@ export const seedEducation: Education[] = [
   },
   {
     degree: "BSc Computer Science",
-    org: "Federal Urdu University of Arts, Sciences and Technology, Islamabad",
+    org: "FUUST, ISB",
     year: "2023",
   },
 ];

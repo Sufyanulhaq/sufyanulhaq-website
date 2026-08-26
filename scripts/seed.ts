@@ -158,8 +158,6 @@ async function main() {
       role: job.role,
       org: job.org,
       location: job.location,
-      startDate: job.startDate,
-      endDate: job.endDate,
       bullets: job.bullets,
       order: index,
     });

@@ -83,8 +83,6 @@ export const experienceQuery = defineQuery(`
     role,
     org,
     location,
-    startDate,
-    endDate,
     bullets
   }
 `);

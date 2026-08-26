@@ -49,8 +49,6 @@ export type Experience = {
   role: string;
   org: string;
   location?: string;
-  startDate: string;
-  endDate: string;
   bullets: string[];
 };
 

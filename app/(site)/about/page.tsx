@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About",
   description:
-    "Background, experience, and skills of Sufyan Ul Haq — a web developer based in Liverpool, UK.",
+    "Background, experience, and skills of Sufyan Ul Haq — a software developer based in Liverpool, UK, expanding into cloud and automation.",
   path: "/about",
 });
 
@@ -22,9 +22,6 @@ export default async function AboutPage() {
     getEducation(),
     getSkillGroups(),
   ]);
-
-  const learning = skillGroups.find((g) => g.isCurrentlyLearning);
-  const coreSkillGroups = skillGroups.filter((g) => !g.isCurrentlyLearning);
 
   return (
     <>
@@ -44,12 +41,7 @@ export default async function AboutPage() {
         <div className="mt-8 space-y-10">
           {experience.map((job) => (
             <div key={`${job.role}-${job.org}`}>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h3 className="font-medium">{job.role}</h3>
-                <span className="text-sm text-foreground/50">
-                  {job.startDate} – {job.endDate}
-                </span>
-              </div>
+              <h3 className="font-medium">{job.role}</h3>
               <p className="text-sm text-foreground/60">
                 {job.org}
                 {job.location ? `, ${job.location}` : ""}
@@ -85,7 +77,7 @@ export default async function AboutPage() {
       <Section className="border-t border-border" reveal>
         <h2 className="text-2xl font-semibold tracking-tight">Skills</h2>
         <div className="mt-8 grid gap-8 sm:grid-cols-2">
-          {coreSkillGroups.map((group) => (
+          {skillGroups.map((group) => (
             <div key={group.title}>
               <h3 className="font-medium">{group.title}</h3>
               <p className="mt-1 text-sm text-foreground/60">
@@ -104,25 +96,6 @@ export default async function AboutPage() {
             </div>
           ))}
         </div>
-
-        {learning && (
-          <div className="mt-10 rounded-2xl border border-accent/20 bg-accent/5 p-6">
-            <h3 className="font-medium">{learning.title}</h3>
-            <p className="mt-1 text-sm text-foreground/60">
-              {learning.description}
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {learning.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-accent/30 px-3 py-1.5 text-sm text-foreground/80"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
       </Section>
 
       <Section className="border-t border-border" reveal>
@@ -130,8 +103,8 @@ export default async function AboutPage() {
           Open to Opportunities
         </h2>
         <p className="mt-3 max-w-xl text-foreground/70">
-          I&apos;m open to junior/graduate developer roles, internships, and
-          freelance web development projects.
+          I&apos;m open to software, web, and cloud-leaning developer roles,
+          internships, and freelance projects.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Button href="/contact">Get in Touch</Button>
