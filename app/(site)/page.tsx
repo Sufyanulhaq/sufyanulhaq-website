@@ -7,9 +7,11 @@ import {
   getProjects,
   getCompletedProjects,
   getInProgressProjects,
-  getSkillGroups,
+  getServices,
 } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
+import { whatsappUrl } from "@/lib/site";
+import { Code2, Cloud, Workflow } from "lucide-react";
 
 export async function generateMetadata() {
   const settings = await getSiteSettings();
@@ -20,16 +22,55 @@ export async function generateMetadata() {
   });
 }
 
+const capabilities = [
+  {
+    icon: Code2,
+    title: "Web Development",
+    description:
+      "Modern, responsive web applications — HTML, CSS, JavaScript, PHP, and TypeScript with React and Next.js.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & Infrastructure",
+    description:
+      "AWS fundamentals, deployment, and DNS/domain setup — genuinely hands-on, still actively growing this side.",
+  },
+  {
+    icon: Workflow,
+    title: "APIs & Automation",
+    description:
+      "Connecting services, integrating APIs, and scripting the repetitive parts away.",
+  },
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Understand",
+    description: "What are we actually solving, and for whom — before any code.",
+  },
+  {
+    step: "02",
+    title: "Build",
+    description: "Working software, built to be explained and defended, not just shipped.",
+  },
+  {
+    step: "03",
+    title: "Support",
+    description: "Deployed properly, with a real point of contact after launch.",
+  },
+];
+
 export default async function Home() {
-  const [settings, projects, skillGroups] = await Promise.all([
+  const [settings, projects, services] = await Promise.all([
     getSiteSettings(),
     getProjects(),
-    getSkillGroups(),
+    getServices(),
   ]);
 
   const completed = getCompletedProjects(projects).slice(0, 3);
   const inProgress = getInProgressProjects(projects);
-  const learning = skillGroups.find((g) => g.isCurrentlyLearning);
+  const featuredServices = services.slice(0, 3);
 
   return (
     <>
@@ -51,6 +92,25 @@ export default async function Home() {
             </Button>
           </HeroDiv>
         </HeroReveal>
+      </Section>
+
+      <Section className="border-t border-border" reveal>
+        <h2 className="text-2xl font-semibold tracking-tight">What I Do</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          {capabilities.map((capability) => (
+            <div key={capability.title} className="card-surface rounded-2xl p-6">
+              <capability.icon
+                className="h-6 w-6 text-accent"
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
+              <h3 className="mt-4 font-medium">{capability.title}</h3>
+              <p className="mt-2 text-sm text-foreground/70">
+                {capability.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       <Section className="border-t border-border" reveal>
@@ -82,31 +142,66 @@ export default async function Home() {
         </Section>
       )}
 
-      {learning && (
+      {featuredServices.length > 0 && (
         <Section className="border-t border-border" reveal>
-          <h2 className="text-2xl font-semibold tracking-tight">
-            {learning.title}
-          </h2>
-          <p className="mt-3 max-w-xl text-foreground/70">
-            {learning.description}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {learning.skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-black/10 px-3 py-1.5 text-sm text-foreground/80 dark:border-white/15"
-              >
-                {skill}
-              </span>
+          <div className="mb-8 flex items-end justify-between">
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Services
+            </h2>
+            <Button href="/services" variant="secondary">
+              All Services
+            </Button>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {featuredServices.map((service) => (
+              <div key={service.slug} className="card-surface rounded-2xl p-6">
+                <h3 className="font-medium">{service.title}</h3>
+                <p className="mt-2 text-sm text-foreground/70">
+                  {service.summary}
+                </p>
+              </div>
             ))}
           </div>
-          <div className="mt-8">
+        </Section>
+      )}
+
+      <Section className="border-t border-border" reveal>
+        <h2 className="text-2xl font-semibold tracking-tight">How I Work</h2>
+        <div className="mt-8 grid gap-8 sm:grid-cols-3">
+          {process.map((item) => (
+            <div key={item.step}>
+              <span className="font-mono text-sm text-accent">{item.step}</span>
+              <h3 className="mt-2 font-medium">{item.title}</h3>
+              <p className="mt-2 text-sm text-foreground/70">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="border-t border-border" reveal>
+        <div className="card-surface rounded-2xl p-8 sm:p-10">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Let&apos;s build something
+          </h2>
+          <p className="mt-3 max-w-xl text-foreground/70">
+            Hiring for a developer role, or have a project in mind? I&apos;d
+            like to hear from you.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Button href="/contact">Start a Project</Button>
+            {settings.whatsapp && (
+              <Button href={whatsappUrl(settings.whatsapp)} variant="secondary" external>
+                Message on WhatsApp
+              </Button>
+            )}
             <Button href="/about" variant="secondary">
               More About Me
             </Button>
           </div>
-        </Section>
-      )}
+        </div>
+      </Section>
     </>
   );
 }

@@ -1,0 +1,57 @@
+import { defineField, defineType } from "sanity";
+
+export const service = defineType({
+  name: "service",
+  title: "Service",
+  type: "document",
+  fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "title" },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "summary",
+      title: "Summary",
+      type: "text",
+      rows: 2,
+      description: "One sentence shown on the services list.",
+    }),
+    defineField({ name: "whoFor", title: "Who It's For", type: "text", rows: 2 }),
+    defineField({
+      name: "includes",
+      title: "What It Includes",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "deliverables",
+      title: "Example Deliverables",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "technologies",
+      title: "Relevant Technologies",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "order",
+      title: "Order",
+      type: "number",
+      initialValue: 0,
+    }),
+  ],
+  preview: {
+    select: { title: "title", subtitle: "summary" },
+  },
+});

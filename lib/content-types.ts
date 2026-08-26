@@ -1,5 +1,3 @@
-import type { PortableTextBlock } from "next-sanity";
-
 export type SiteSettings = {
   headline: string;
   tagline: string;
@@ -8,6 +6,7 @@ export type SiteSettings = {
   location: string;
   githubUrl: string;
   linkedinUrl?: string;
+  whatsapp?: string;
   cvUrl?: string;
   seoDescription: string;
 };
@@ -37,12 +36,14 @@ export type SkillGroup = {
   isCurrentlyLearning: boolean;
 };
 
-export type Post = {
+export type Service = {
   slug: string;
   title: string;
-  description: string;
-  publishedAt: string;
-  body: PortableTextBlock[];
+  summary: string;
+  whoFor: string;
+  includes: string[];
+  deliverables: string[];
+  technologies: string[];
 };
 
 export type Experience = {

@@ -5,6 +5,7 @@ import type {
   SiteSettings,
   Project,
   SkillGroup,
+  Service,
   Experience,
   Education,
 } from "@/lib/content-types";
@@ -22,9 +23,107 @@ export const seedSiteSettings: SiteSettings = {
   location: "Liverpool, UK",
   githubUrl: "https://github.com/Sufyanulhaq",
   linkedinUrl: "https://www.linkedin.com/in/sufyanulhaq/",
+  whatsapp: "447469753723",
   seoDescription:
     "Sufyan Ul Haq is a software developer based in Liverpool, UK, building modern web applications and expanding into cloud computing, automation, and infrastructure.",
 };
+
+export const seedServices: Service[] = [
+  {
+    slug: "website-development",
+    title: "Website Development",
+    summary: "Modern, responsive, professional websites built from scratch.",
+    whoFor:
+      "Individuals, freelancers, and small businesses who need a real website — not a template with their name on it.",
+    includes: [
+      "Custom design and build",
+      "Responsive layout for mobile, tablet, and desktop",
+      "SEO foundation — metadata, sitemap, semantic HTML",
+      "Content structured for easy updates",
+    ],
+    deliverables: [
+      "A live, deployed website",
+      "Source code you own",
+      "Basic documentation for making content changes",
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity CMS"],
+  },
+  {
+    slug: "web-applications",
+    title: "Web Applications",
+    summary: "Custom web applications and business systems, not just static pages.",
+    whoFor:
+      "Businesses that need something interactive — bookings, accounts, a dashboard, or a workflow specific to how they operate.",
+    includes: [
+      "Custom functionality built around your actual process",
+      "Database design and data handling",
+      "User accounts, forms, or booking-style flows where needed",
+    ],
+    deliverables: [
+      "A working application, deployed and tested",
+      "A clear handover of how it's structured",
+    ],
+    technologies: ["React", "Next.js", "PHP", "MySQL", "REST APIs"],
+  },
+  {
+    slug: "api-integration-automation",
+    title: "API Integration & Automation",
+    summary: "Connect the tools you already use and automate the repetitive parts.",
+    whoFor:
+      "Anyone whose team is manually doing something a script or an API connection could handle instead.",
+    includes: [
+      "Connecting third-party APIs (email, payments, data services)",
+      "Scripting repetitive tasks",
+      "Data syncing between systems",
+    ],
+    deliverables: [
+      "A working integration or script",
+      "Documentation of what it does and how to change it",
+    ],
+    technologies: ["Node.js", "REST APIs", "Scripting"],
+  },
+  {
+    slug: "deployment-technical-setup",
+    title: "Deployment & Technical Setup",
+    summary: "Get an application properly deployed, with a real domain and working infrastructure.",
+    whoFor: "Projects that are built but not live, or live in the wrong place.",
+    includes: [
+      "Hosting and deployment setup (Vercel or similar)",
+      "Domain and DNS configuration",
+      "Environment variables and production setup",
+    ],
+    deliverables: ["A live, working deployment on your own domain"],
+    technologies: ["Vercel", "DNS", "AWS Fundamentals"],
+  },
+  {
+    slug: "website-improvements",
+    title: "Website Improvements",
+    summary: "Performance, responsiveness, and UI/UX fixes for an existing site.",
+    whoFor:
+      "Sites that already exist but load slowly, look broken on mobile, or need a design refresh.",
+    includes: [
+      "Performance audit and fixes",
+      "Mobile responsiveness fixes",
+      "UI/UX improvements",
+      "Accessibility fixes",
+    ],
+    deliverables: ["A faster, cleaner, more usable site — same content, better execution"],
+    technologies: ["HTML/CSS", "JavaScript", "Next.js"],
+  },
+  {
+    slug: "maintenance-support",
+    title: "Maintenance & Support",
+    summary: "Ongoing updates and technical support after launch.",
+    whoFor: "Anyone who wants their site kept up to date without hiring in-house.",
+    includes: [
+      "Regular updates and small fixes",
+      "Monitoring for issues",
+      "Content or feature additions as needed",
+    ],
+    deliverables: ["A site that keeps working, with a point of contact when something needs to change"],
+    technologies: [],
+  },
+];
 
 export const seedProjects: Project[] = [
   {

@@ -32,6 +32,12 @@ export const siteSettings = defineType({
     defineField({ name: "githubUrl", title: "GitHub URL", type: "url" }),
     defineField({ name: "linkedinUrl", title: "LinkedIn URL", type: "url" }),
     defineField({
+      name: "whatsapp",
+      title: "WhatsApp Number",
+      type: "string",
+      description: "International format, digits only, e.g. 447469753723",
+    }),
+    defineField({
       name: "cvFile",
       title: "CV File",
       type: "file",

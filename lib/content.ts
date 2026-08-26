@@ -5,8 +5,7 @@ import {
   projectsQuery,
   projectBySlugQuery,
   skillGroupsQuery,
-  postsQuery,
-  postBySlugQuery,
+  servicesQuery,
   experienceQuery,
   educationQuery,
 } from "@/sanity/lib/queries";
@@ -14,6 +13,7 @@ import {
   seedSiteSettings,
   seedProjects,
   seedSkillGroups,
+  seedServices,
   seedExperience,
   seedEducation,
 } from "@/sanity/seed-data";
@@ -21,7 +21,7 @@ import type {
   SiteSettings,
   Project,
   SkillGroup,
-  Post,
+  Service,
   Experience,
   Education,
 } from "./content-types";
@@ -45,6 +45,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     location?: string;
     githubUrl?: string;
     linkedinUrl?: string;
+    whatsapp?: string;
     cvUrl?: string;
     seoDescription?: string;
   } | null>(siteSettingsQuery);
@@ -61,6 +62,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     location: result.location || seedSiteSettings.location,
     githubUrl: result.githubUrl || seedSiteSettings.githubUrl,
     linkedinUrl: result.linkedinUrl || seedSiteSettings.linkedinUrl,
+    whatsapp: result.whatsapp || seedSiteSettings.whatsapp,
     cvUrl: result.cvUrl,
     seoDescription: result.seoDescription || seedSiteSettings.seoDescription,
   };
@@ -94,16 +96,10 @@ export async function getSkillGroups(): Promise<SkillGroup[]> {
   return result?.length ? result : seedSkillGroups;
 }
 
-export async function getPosts(): Promise<Post[]> {
-  if (!isSanityConfigured) return [];
-  const result = await sanityFetch<Post[]>(postsQuery);
-  return result ?? [];
-}
-
-export async function getPostBySlug(slug: string): Promise<Post | undefined> {
-  if (!isSanityConfigured) return undefined;
-  const result = await sanityFetch<Post | null>(postBySlugQuery, { slug });
-  return result ?? undefined;
+export async function getServices(): Promise<Service[]> {
+  if (!isSanityConfigured) return seedServices;
+  const result = await sanityFetch<Service[]>(servicesQuery);
+  return result?.length ? result : seedServices;
 }
 
 export async function getExperience(): Promise<Experience[]> {

@@ -1,7 +1,9 @@
 import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/ContactForm";
 import { getSiteSettings } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
+import { whatsappUrl } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Contact",
@@ -25,7 +27,30 @@ export default async function ContactPage() {
             web project in mind, or just want to say hi — I&apos;d like to
             hear from you.
           </p>
+          {settings.whatsapp && (
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Button href={whatsappUrl(settings.whatsapp)} external>
+                Message on WhatsApp
+              </Button>
+              <Button href={`mailto:${settings.email}`} variant="secondary">
+                Email Me
+              </Button>
+            </div>
+          )}
           <div className="mt-8 space-y-3 text-sm">
+            {settings.whatsapp && (
+              <p>
+                <span className="text-foreground/50">WhatsApp: </span>
+                <a
+                  href={whatsappUrl(settings.whatsapp)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                >
+                  +{settings.whatsapp.replace(/(\d{2})(\d{4})(\d{6})/, "$1 $2 $3")}
+                </a>
+              </p>
+            )}
             <p>
               <span className="text-foreground/50">Email: </span>
               <a

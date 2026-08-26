@@ -9,6 +9,7 @@ export const siteSettingsQuery = defineQuery(`
     location,
     githubUrl,
     linkedinUrl,
+    whatsapp,
     "cvUrl": cvFile.asset->url,
     seoDescription
   }
@@ -59,22 +60,15 @@ export const skillGroupsQuery = defineQuery(`
   }
 `);
 
-export const postsQuery = defineQuery(`
-  *[_type == "post"] | order(publishedAt desc){
+export const servicesQuery = defineQuery(`
+  *[_type == "service"] | order(order asc){
     "slug": slug.current,
     title,
-    description,
-    publishedAt
-  }
-`);
-
-export const postBySlugQuery = defineQuery(`
-  *[_type == "post" && slug.current == $slug][0]{
-    "slug": slug.current,
-    title,
-    description,
-    publishedAt,
-    body
+    summary,
+    whoFor,
+    includes,
+    deliverables,
+    technologies
   }
 `);
 
