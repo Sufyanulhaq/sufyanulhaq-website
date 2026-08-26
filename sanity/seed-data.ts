@@ -161,6 +161,7 @@ export const seedProjects: Project[] = [
     slug: "hotel-booking-website",
     name: "Hotel Booking Website",
     status: "completed",
+    tag: "Code Available · No Live Demo",
     summary:
       "A full-stack hotel booking application covering room search, booking, and a sandbox payment integration.",
     problem:
@@ -223,6 +224,7 @@ export const seedProjects: Project[] = [
     slug: "butcher-shop",
     name: "Butcher Shop",
     status: "completed",
+    tag: "Code Available · No Live Demo",
     summary:
       "An e-commerce site for an online butcher shop, including customer accounts, cart/checkout, and an admin panel.",
     problem:
@@ -273,6 +275,7 @@ export const seedProjects: Project[] = [
     whatILearned:
       "Designing a content model that's simple enough to actually maintain, and the Next.js App Router patterns for combining static generation with CMS-driven content.",
     githubUrl: "https://github.com/Sufyanulhaq/sufyanulhaq-website",
+    demoUrl: "https://sufyanulhaq.com",
   },
 ];
 
