@@ -195,6 +195,7 @@ export const seedProjects: Project[] = [
     slug: "roof-info",
     name: "Roof.info",
     status: "completed",
+    tag: "Live Project · Deployed",
     summary:
       "A Laravel-based content platform reviewing roofing materials, built with a proper MVC structure and test coverage.",
     problem:
@@ -253,6 +254,7 @@ export const seedProjects: Project[] = [
     slug: "sufyanulhaq-com",
     name: "This Website",
     status: "completed",
+    tag: "Live Project · Deployed",
     summary:
       "This site itself: a production personal website built with Next.js, TypeScript, and an embedded headless CMS.",
     problem:
