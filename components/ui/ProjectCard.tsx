@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/content-types";
+import { projectMockups } from "@/lib/project-mockups";
+import { InterfaceMockup } from "./InterfaceMockup";
 
 const statusLabel: Record<Project["status"], string | null> = {
   completed: null,
@@ -23,6 +25,7 @@ function initials(name: string) {
 
 export function ProjectCard({ project }: { project: Project }) {
   const badge = statusLabel[project.status];
+  const mockupVariant = projectMockups[project.slug];
 
   return (
     <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.18 }}>
@@ -38,6 +41,12 @@ export function ProjectCard({ project }: { project: Project }) {
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover object-top"
+            />
+          ) : mockupVariant ? (
+            <InterfaceMockup
+              variant={mockupVariant}
+              label={project.slug}
+              className="h-full w-full"
             />
           ) : (
             <>

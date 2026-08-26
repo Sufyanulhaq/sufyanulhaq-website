@@ -4,8 +4,10 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { ArchitectureFlow } from "@/components/ui/ArchitectureFlow";
 import { Reveal } from "@/components/motion/Reveal";
+import { InterfaceMockup } from "@/components/ui/InterfaceMockup";
 import { getProjects, getProjectBySlug } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
+import { projectMockups } from "@/lib/project-mockups";
 
 const statusLabel = {
   completed: null,
@@ -44,6 +46,7 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   const badge = statusLabel[project.status];
+  const mockupVariant = projectMockups[project.slug];
 
   return (
     <Section className="pt-16 sm:pt-20" reveal>
@@ -74,7 +77,7 @@ export default async function ProjectPage({
         )}
       </div>
 
-      {project.screenshotUrl && (
+      {project.screenshotUrl ? (
         <div className="mt-10 overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
           <Image
             src={project.screenshotUrl}
@@ -85,6 +88,22 @@ export default async function ProjectPage({
             priority
           />
         </div>
+      ) : (
+        mockupVariant && (
+          <div>
+            <div className="mt-10 overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
+              <InterfaceMockup
+                variant={mockupVariant}
+                label={project.slug}
+                className="w-full"
+              />
+            </div>
+            <p className="mt-2 text-xs text-foreground/50">
+              Illustrative interface preview — no working live demo is
+              available for this project (see below).
+            </p>
+          </div>
+        )
       )}
 
       {project.architecture.length > 0 && (
