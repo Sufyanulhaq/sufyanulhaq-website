@@ -67,10 +67,10 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
         <div className="p-5">
-          <div className="mb-2 flex flex-wrap items-center gap-2">
+          <div className="mb-2">
             <h3 className="font-semibold">{project.name}</h3>
             {badge && (
-              <span className="shrink-0 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+              <span className="mt-1.5 inline-block rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
                 {badge}
               </span>
             )}

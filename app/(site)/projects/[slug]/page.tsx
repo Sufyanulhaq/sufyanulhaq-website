@@ -59,12 +59,12 @@ export default async function ProjectPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <div className="flex flex-wrap items-center gap-3">
+      <div>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           {project.name}
         </h1>
         {badge && (
-          <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+          <span className="mt-3 inline-block rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
             {badge}
           </span>
         )}
