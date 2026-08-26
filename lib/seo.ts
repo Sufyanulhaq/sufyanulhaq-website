@@ -48,7 +48,7 @@ export function personJsonLd(settings: SiteSettings) {
     jobTitle: settings.headline,
     address: {
       "@type": "PostalAddress",
-      addressLocality: settings.location,
+      addressLocality: settings.location.split(",")[0].trim(),
       addressCountry: "GB",
     },
     sameAs: [settings.githubUrl, settings.linkedinUrl].filter(Boolean),

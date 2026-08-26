@@ -50,9 +50,11 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([personJsonLd(settings), websiteJsonLd()]),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(settings)) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
         {children}
         <Analytics />
