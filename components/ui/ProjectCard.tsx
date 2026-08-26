@@ -31,7 +31,7 @@ export function ProjectCard({ project }: { project: Project }) {
     <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.18 }}>
       <Link
         href={`/projects/${project.slug}`}
-        className="group block overflow-hidden rounded-2xl border border-black/10 transition-colors hover:border-accent/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:border-white/10"
+        className="card-surface group block overflow-hidden rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         <div className="relative flex h-36 items-center justify-center overflow-hidden bg-muted">
           {project.screenshotUrl ? (
@@ -78,7 +78,7 @@ export function ProjectCard({ project }: { project: Project }) {
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-md bg-black/[.04] px-2 py-1 text-xs text-foreground/70 dark:bg-white/[.06]"
+                className="rounded-md bg-muted px-2 py-1 text-xs text-foreground-soft"
               >
                 {tech}
               </span>

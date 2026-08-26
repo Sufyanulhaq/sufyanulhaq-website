@@ -23,8 +23,8 @@ export function Button({
     "inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
   const styles =
     variant === "primary"
-      ? "bg-accent text-accent-foreground hover:opacity-90"
-      : "border border-black/15 dark:border-white/20 hover:bg-black/[.03] dark:hover:bg-white/[.06]";
+      ? "bg-accent text-accent-foreground hover:bg-accent-hover"
+      : "border border-border hover:bg-muted";
 
   return (
     <MotionLink

@@ -2,19 +2,28 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #141417;
-  --muted: #f4f4f6;
-  --accent: #4f46e5;
+  --background: #fbfbfc;
+  --foreground: #17171b;
+  --foreground-soft: #52525b;
+  --muted: #f1f1f4;
+  --border-color: rgba(15, 15, 20, 0.09);
+  --accent: #4338ca;
+  --accent-hover: #362f9e;
   --accent-foreground: #ffffff;
+  --accent-soft: rgba(67, 56, 202, 0.08);
+  --shadow-color: 220 20% 10%;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-soft: var(--foreground-soft);
   --color-muted: var(--muted);
+  --color-border: var(--border-color);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -23,9 +32,14 @@
   :root {
     --background: #0a0a0b;
     --foreground: #ededf0;
-    --muted: #17171a;
+    --foreground-soft: #a1a1aa;
+    --muted: #18181b;
+    --border-color: rgba(255, 255, 255, 0.1);
     --accent: #818cf8;
+    --accent-hover: #a5b4fc;
     --accent-foreground: #0a0a0b;
+    --accent-soft: rgba(129, 140, 248, 0.12);
+    --shadow-color: 220 40% 2%;
   }
 }
 
@@ -37,6 +51,28 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.card-surface {
+  border: 1px solid var(--border-color);
+  background: var(--background);
+  box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.04);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card-surface:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border-color));
+  box-shadow:
+    0 8px 24px -8px hsl(var(--shadow-color) / 0.16),
+    0 2px 8px -2px hsl(var(--shadow-color) / 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {

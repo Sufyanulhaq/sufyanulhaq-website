@@ -38,7 +38,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-black/10 p-6 dark:border-white/10">
+      <div className="rounded-2xl border border-border p-6">
         <p className="font-medium">Thanks for reaching out.</p>
         <p className="mt-1 text-sm text-foreground/70">
           I&apos;ll get back to you as soon as I can.
@@ -59,7 +59,7 @@ export function ContactForm() {
             name="name"
             type="text"
             required
-            className="mt-1.5 w-full rounded-lg border border-black/15 bg-transparent px-3.5 py-2.5 text-sm outline-none focus:border-black/40 dark:border-white/20 dark:focus:border-white/50"
+            className="mt-1.5 w-full rounded-lg border border-border bg-transparent px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15"
           />
         </div>
         <div>
@@ -71,7 +71,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
-            className="mt-1.5 w-full rounded-lg border border-black/15 bg-transparent px-3.5 py-2.5 text-sm outline-none focus:border-black/40 dark:border-white/20 dark:focus:border-white/50"
+            className="mt-1.5 w-full rounded-lg border border-border bg-transparent px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15"
           />
         </div>
       </div>
@@ -84,7 +84,7 @@ export function ContactForm() {
           id="company"
           name="company"
           type="text"
-          className="mt-1.5 w-full rounded-lg border border-black/15 bg-transparent px-3.5 py-2.5 text-sm outline-none focus:border-black/40 dark:border-white/20 dark:focus:border-white/50"
+          className="mt-1.5 w-full rounded-lg border border-border bg-transparent px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15"
         />
       </div>
       <div>
@@ -96,7 +96,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="mt-1.5 w-full rounded-lg border border-black/15 bg-transparent px-3.5 py-2.5 text-sm outline-none focus:border-black/40 dark:border-white/20 dark:focus:border-white/50"
+          className="mt-1.5 w-full rounded-lg border border-border bg-transparent px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15"
         />
       </div>
 
@@ -109,7 +109,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center justify-center rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:opacity-90 disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send Message"}
       </button>

@@ -39,7 +39,7 @@ export default async function AboutPage() {
         </div>
       </Section>
 
-      <Section className="border-t border-black/10 dark:border-white/10" reveal>
+      <Section className="border-t border-border" reveal>
         <h2 className="text-2xl font-semibold tracking-tight">Experience</h2>
         <div className="mt-8 space-y-10">
           {experience.map((job) => (
@@ -64,7 +64,7 @@ export default async function AboutPage() {
         </div>
       </Section>
 
-      <Section className="border-t border-black/10 dark:border-white/10" reveal>
+      <Section className="border-t border-border" reveal>
         <h2 className="text-2xl font-semibold tracking-tight">Education</h2>
         <div className="mt-8 space-y-4">
           {education.map((item) => (
@@ -82,7 +82,7 @@ export default async function AboutPage() {
         </div>
       </Section>
 
-      <Section className="border-t border-black/10 dark:border-white/10" reveal>
+      <Section className="border-t border-border" reveal>
         <h2 className="text-2xl font-semibold tracking-tight">Skills</h2>
         <div className="mt-8 grid gap-8 sm:grid-cols-2">
           {coreSkillGroups.map((group) => (
@@ -95,7 +95,7 @@ export default async function AboutPage() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-md bg-black/[.04] px-2.5 py-1 text-sm text-foreground/80 dark:bg-white/[.06]"
+                    className="rounded-md bg-muted px-2.5 py-1 text-sm text-foreground-soft"
                   >
                     {skill}
                   </span>
@@ -125,7 +125,7 @@ export default async function AboutPage() {
         )}
       </Section>
 
-      <Section className="border-t border-black/10 dark:border-white/10" reveal>
+      <Section className="border-t border-border" reveal>
         <h2 className="text-2xl font-semibold tracking-tight">
           Open to Opportunities
         </h2>

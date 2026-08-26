@@ -7,7 +7,7 @@ export async function Footer() {
   const settings = await getSiteSettings();
 
   return (
-    <footer className="mt-24 border-t border-black/10 dark:border-white/10">
+    <footer className="mt-24 border-t border-border">
       <Container className="flex flex-col gap-4 py-10 text-sm text-foreground/60 sm:flex-row sm:items-center sm:justify-between">
         <p>
           &copy; {new Date().getFullYear()} {site.name}. Based in{" "}

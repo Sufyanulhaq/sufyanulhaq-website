@@ -34,7 +34,7 @@ export default async function WritingPage() {
             <Link
               key={post.slug}
               href={`/writing/${post.slug}`}
-              className="block rounded-2xl border border-black/10 p-6 transition-colors hover:border-accent/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:border-white/10"
+              className="block rounded-2xl border border-border p-6 transition-colors hover:border-accent/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               <p className="text-sm text-foreground/50">
                 {new Date(post.publishedAt).toLocaleDateString("en-GB", {

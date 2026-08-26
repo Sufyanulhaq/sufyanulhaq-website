@@ -34,7 +34,7 @@ export default async function ProjectsPage() {
       </Section>
 
       {inProgress.length > 0 && (
-        <Section className="border-t border-black/10 dark:border-white/10" reveal>
+        <Section className="border-t border-border" reveal>
           <h2 className="text-2xl font-semibold tracking-tight">
             Currently Building
           </h2>

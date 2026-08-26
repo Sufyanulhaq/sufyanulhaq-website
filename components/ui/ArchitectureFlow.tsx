@@ -4,10 +4,10 @@ export function ArchitectureFlow({ stages }: { stages: string[] }) {
   if (!stages.length) return null;
 
   return (
-    <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-black/10 bg-muted p-5 dark:border-white/10">
+    <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-muted p-5">
       {stages.map((stage, i) => (
         <div key={stage} className="flex items-center gap-2">
-          <span className="rounded-lg border border-black/10 bg-background px-3 py-1.5 text-sm font-medium dark:border-white/15">
+          <span className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm font-medium">
             {stage}
           </span>
           {i < stages.length - 1 && (

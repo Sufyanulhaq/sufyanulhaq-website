@@ -9,7 +9,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b border-black/10 dark:border-white/10">
+    <header className="border-b border-border">
       <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 py-4 sm:h-16 sm:flex-nowrap sm:py-0">
         <Link
           href="/"

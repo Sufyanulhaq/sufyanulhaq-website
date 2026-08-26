@@ -78,7 +78,7 @@ export default async function ProjectPage({
       </div>
 
       {project.screenshotUrl ? (
-        <div className="mt-10 overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
+        <div className="mt-10 overflow-hidden rounded-2xl border border-border">
           <Image
             src={project.screenshotUrl}
             alt={`Screenshot of ${project.name}`}
@@ -91,7 +91,7 @@ export default async function ProjectPage({
       ) : (
         mockupVariant && (
           <div>
-            <div className="mt-10 overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
+            <div className="mt-10 overflow-hidden rounded-2xl border border-border">
               <InterfaceMockup
                 variant={mockupVariant}
                 label={project.slug}
@@ -128,7 +128,7 @@ export default async function ProjectPage({
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-md bg-black/[.04] px-2.5 py-1 text-sm text-foreground/80 dark:bg-white/[.06]"
+                className="rounded-md bg-muted px-2.5 py-1 text-sm text-foreground-soft"
               >
                 {tech}
               </span>

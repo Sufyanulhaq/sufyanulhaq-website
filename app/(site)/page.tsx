@@ -53,7 +53,7 @@ export default async function Home() {
         </HeroReveal>
       </Section>
 
-      <Section className="border-t border-black/10 dark:border-white/10" reveal>
+      <Section className="border-t border-border" reveal>
         <div className="mb-8 flex items-end justify-between">
           <h2 className="text-2xl font-semibold tracking-tight">
             Selected Projects
@@ -70,7 +70,7 @@ export default async function Home() {
       </Section>
 
       {inProgress.length > 0 && (
-        <Section className="border-t border-black/10 dark:border-white/10" reveal>
+        <Section className="border-t border-border" reveal>
           <h2 className="text-2xl font-semibold tracking-tight">
             Currently Building
           </h2>
@@ -83,7 +83,7 @@ export default async function Home() {
       )}
 
       {learning && (
-        <Section className="border-t border-black/10 dark:border-white/10" reveal>
+        <Section className="border-t border-border" reveal>
           <h2 className="text-2xl font-semibold tracking-tight">
             {learning.title}
           </h2>
