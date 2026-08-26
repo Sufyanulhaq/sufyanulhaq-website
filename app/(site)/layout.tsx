@@ -1,5 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 
 export default function SiteLayout({
   children,
@@ -7,18 +9,19 @@ export default function SiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <MotionProvider>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
       >
         Skip to content
       </a>
+      <ScrollProgress />
       <Navbar />
       <main id="main-content" className="flex-1">
         {children}
       </main>
       <Footer />
-    </>
+    </MotionProvider>
   );
 }

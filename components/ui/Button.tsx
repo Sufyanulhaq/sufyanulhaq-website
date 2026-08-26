@@ -1,5 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
+
+const MotionLink = motion.create(Link);
 
 type ButtonProps = {
   href: string;
@@ -22,13 +27,16 @@ export function Button({
       : "border border-black/15 dark:border-white/20 hover:bg-black/[.03] dark:hover:bg-white/[.06]";
 
   return (
-    <Link
+    <MotionLink
       href={href}
       className={`${base} ${styles}`}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ duration: 0.15, ease: "easeOut" }}
     >
       {children}
-    </Link>
+    </MotionLink>
   );
 }

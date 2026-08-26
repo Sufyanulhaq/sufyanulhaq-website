@@ -40,13 +40,13 @@ export function ProjectCard({ project }: { project: Project }) {
               alt={`Screenshot of ${project.name}`}
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover object-top"
+              className="object-cover object-top transition-transform duration-300 ease-out group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
             />
           ) : mockupVariant ? (
             <InterfaceMockup
               variant={mockupVariant}
               label={project.slug}
-              className="h-full w-full"
+              className="h-full w-full transition-transform duration-300 ease-out group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
             />
           ) : (
             <>

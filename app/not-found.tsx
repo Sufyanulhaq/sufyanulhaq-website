@@ -2,10 +2,11 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 
 export default function NotFound() {
   return (
-    <>
+    <MotionProvider>
       <Navbar />
       <main className="flex-1">
         <Section className="pt-24 text-center">
@@ -21,6 +22,6 @@ export default function NotFound() {
         </Section>
       </main>
       <Footer />
-    </>
+    </MotionProvider>
   );
 }
