@@ -28,6 +28,36 @@ export const seedSiteSettings: SiteSettings = {
 
 export const seedProjects: Project[] = [
   {
+    slug: "pulse",
+    name: "Pulse",
+    status: "completed",
+    summary:
+      "An animation-heavy landing page concept for a fictional focus-tracking app, built to explore scroll-linked motion design and accessible animation.",
+    problem:
+      "Heavily animated landing pages often become inaccessible or janky in practice — motion that looks impressive on a fast desktop can break down on mobile, ignore users who've asked for reduced motion, or just feel like a demo reel instead of a considered interface.",
+    solution:
+      "Built a fully animated marketing landing page for a fictional focus-tracking product: scroll-linked reveal animations, a staggered hero entrance with an animated stat panel, and a working waitlist form with inline validation — with complete prefers-reduced-motion support throughout, so the experience degrades gracefully instead of breaking.",
+    architecture: [
+      "Browser",
+      "React 19",
+      "Motion (animation)",
+      "Vite (static build)",
+      "Hosting",
+    ],
+    techStack: ["React", "Vite", "Motion", "JavaScript"],
+    keyFeatures: [
+      "Scroll-linked reveal animations across every section",
+      "Staggered hero entrance with an animated stat panel",
+      "Full prefers-reduced-motion support throughout",
+      "Working waitlist form with inline validation and success state",
+      "Fully responsive, no horizontal scroll from 375px up",
+    ],
+    whatILearned:
+      "Building animation that respects accessibility settings by default rather than as an afterthought, and how much timing and staggering affect whether motion feels premium or just busy.",
+    githubUrl: "https://github.com/Sufyanulhaq/pulse",
+    demoUrl: "https://pulse-sufyanulhaq.vercel.app",
+  },
+  {
     slug: "hotel-booking-website",
     name: "Hotel Booking Website",
     status: "completed",
