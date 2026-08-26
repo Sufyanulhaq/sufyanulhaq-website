@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { personJsonLd, websiteJsonLd } from "@/lib/seo";
-import { getSiteSettings } from "@/lib/content";
+import { getSiteSettings, getSkillGroups } from "@/lib/content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +40,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const settings = await getSiteSettings();
+  const [settings, skillGroups] = await Promise.all([
+    getSiteSettings(),
+    getSkillGroups(),
+  ]);
+  const skills = skillGroups.flatMap((group) => group.skills);
 
   return (
     <html
@@ -50,7 +54,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(settings)) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(settings, skills)) }}
         />
         <script
           type="application/ld+json"

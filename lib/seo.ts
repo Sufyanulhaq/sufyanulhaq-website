@@ -40,19 +40,21 @@ export function pageMetadata({
   };
 }
 
-export function personJsonLd(settings: SiteSettings) {
+export function personJsonLd(settings: SiteSettings, skills: string[] = []) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     name: site.name,
     url: site.url,
     jobTitle: settings.headline,
+    description: settings.seoDescription,
     address: {
       "@type": "PostalAddress",
       addressLocality: settings.location.split(",")[0].trim(),
       addressCountry: "GB",
     },
     sameAs: [settings.githubUrl, settings.linkedinUrl].filter(Boolean),
+    ...(skills.length > 0 ? { knowsAbout: skills } : {}),
   };
 }
 
@@ -62,5 +64,18 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     name: site.name,
     url: site.url,
+  };
+}
+
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: new URL(item.path, site.url).toString(),
+    })),
   };
 }

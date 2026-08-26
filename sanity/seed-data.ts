@@ -25,7 +25,7 @@ export const seedSiteSettings: SiteSettings = {
   linkedinUrl: "https://www.linkedin.com/in/sufyanulhaq/",
   whatsapp: "447469753723",
   seoDescription:
-    "Sufyan Ul Haq is a software developer based in Liverpool, UK, building modern web applications and expanding into cloud computing, automation, and infrastructure.",
+    "Software developer based in Liverpool, UK, with a strong web development background, building modern web applications and expanding into cloud computing.",
 };
 
 export const seedServices: Service[] = [

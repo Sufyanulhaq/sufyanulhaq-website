@@ -7,7 +7,7 @@ import { whatsappUrl } from "@/lib/site";
 export const metadata = pageMetadata({
   title: "Services",
   description:
-    "Web development, application, and automation services from Sufyan Ul Haq — only what he can genuinely deliver.",
+    "Web development, application, and automation services from Sufyan Ul Haq, a software developer based in Liverpool, UK.",
   path: "/services",
 });
 

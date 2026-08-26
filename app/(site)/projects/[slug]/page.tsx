@@ -6,7 +6,7 @@ import { ArchitectureFlow } from "@/components/ui/ArchitectureFlow";
 import { Reveal } from "@/components/motion/Reveal";
 import { InterfaceMockup } from "@/components/ui/InterfaceMockup";
 import { getProjects, getProjectBySlug } from "@/lib/content";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { projectMockups } from "@/lib/project-mockups";
 
 const statusLabel = {
@@ -47,9 +47,18 @@ export default async function ProjectPage({
 
   const badge = project.tag || statusLabel[project.status];
   const mockupVariant = projectMockups[project.slug];
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Projects", path: "/projects" },
+    { name: project.name, path: `/projects/${project.slug}` },
+  ]);
 
   return (
     <Section className="pt-16 sm:pt-20" reveal>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <div className="flex flex-wrap items-center gap-3">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           {project.name}

@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Projects",
   description:
-    "Selected projects built by Sufyan Ul Haq while developing his web development skills.",
+    "Software projects by Sufyan Ul Haq: full-stack web applications built with React, Next.js, Laravel, and PHP, covering UI, APIs, and databases.",
   path: "/projects",
 });
 
