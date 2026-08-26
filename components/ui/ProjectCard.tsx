@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/content-types";
 
@@ -30,17 +31,29 @@ export function ProjectCard({ project }: { project: Project }) {
         className="group block overflow-hidden rounded-2xl border border-black/10 transition-colors hover:border-accent/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent dark:border-white/10"
       >
         <div className="relative flex h-36 items-center justify-center overflow-hidden bg-muted">
-          <div
-            className="absolute inset-0 opacity-[0.15] dark:opacity-[0.2]"
-            style={{
-              backgroundImage:
-                "radial-gradient(var(--foreground) 1px, transparent 1px)",
-              backgroundSize: "16px 16px",
-            }}
-          />
-          <span className="relative flex h-16 w-16 items-center justify-center rounded-xl bg-accent text-lg font-semibold text-accent-foreground">
-            {initials(project.name)}
-          </span>
+          {project.screenshotUrl ? (
+            <Image
+              src={project.screenshotUrl}
+              alt={`Screenshot of ${project.name}`}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover object-top"
+            />
+          ) : (
+            <>
+              <div
+                className="absolute inset-0 opacity-[0.15] dark:opacity-[0.2]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(var(--foreground) 1px, transparent 1px)",
+                  backgroundSize: "16px 16px",
+                }}
+              />
+              <span className="relative flex h-16 w-16 items-center justify-center rounded-xl bg-accent text-lg font-semibold text-accent-foreground">
+                {initials(project.name)}
+              </span>
+            </>
+          )}
         </div>
         <div className="p-5">
           <div className="mb-2 flex items-center justify-between gap-3">

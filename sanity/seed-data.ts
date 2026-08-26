@@ -56,7 +56,9 @@ export const seedProjects: Project[] = [
       "Structuring a multi-page PHP application around a relational schema, and keeping a multi-step flow — search, book, pay, confirm — consistent when any step can fail.",
     githubUrl:
       "https://github.com/Sufyanulhaq/Hotel-Booking-Website-Working-Code-master",
-    demoUrl: "https://hotel-booking-website-working-code-master.vercel.app",
+    // No demoUrl: the Vercel deployment serves the raw .php source instead
+    // of executing it (no PHP runtime configured there), so there's no
+    // working live demo to link to honestly.
   },
   {
     slug: "roof-info",
@@ -113,7 +115,7 @@ export const seedProjects: Project[] = [
     whatILearned:
       "Handling stateful flows like a cart across multiple pages, and separating customer-facing and admin functionality within the same codebase.",
     githubUrl: "https://github.com/Sufyanulhaq/butcher-shop",
-    demoUrl: "https://butcher-shop.vercel.app",
+    // No demoUrl: same issue as Hotel Booking — served as raw PHP, not executed.
   },
   {
     slug: "sufyanulhaq-com",

@@ -27,7 +27,8 @@ export const projectsQuery = defineQuery(`
     keyFeatures,
     whatILearned,
     githubUrl,
-    demoUrl
+    demoUrl,
+    "screenshotUrl": screenshot.asset->url
   }
 `);
 
@@ -44,7 +45,8 @@ export const projectBySlugQuery = defineQuery(`
     keyFeatures,
     whatILearned,
     githubUrl,
-    demoUrl
+    demoUrl,
+    "screenshotUrl": screenshot.asset->url
   }
 `);
 

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { ArchitectureFlow } from "@/components/ui/ArchitectureFlow";
@@ -72,6 +73,19 @@ export default async function ProjectPage({
           </Button>
         )}
       </div>
+
+      {project.screenshotUrl && (
+        <div className="mt-10 overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
+          <Image
+            src={project.screenshotUrl}
+            alt={`Screenshot of ${project.name}`}
+            width={1600}
+            height={1000}
+            className="w-full"
+            priority
+          />
+        </div>
+      )}
 
       {project.architecture.length > 0 && (
         <div className="mt-12">

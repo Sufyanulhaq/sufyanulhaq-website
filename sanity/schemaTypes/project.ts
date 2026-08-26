@@ -69,6 +69,12 @@ export const project = defineType({
     defineField({ name: "githubUrl", title: "GitHub URL", type: "url" }),
     defineField({ name: "demoUrl", title: "Live Demo URL", type: "url" }),
     defineField({
+      name: "screenshot",
+      title: "Screenshot",
+      type: "image",
+      description: "A real screenshot of the live project.",
+    }),
+    defineField({
       name: "order",
       title: "Order",
       type: "number",
