@@ -1,10 +1,12 @@
 import { defineField, defineType } from "sanity";
 import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
+import { FolderGit2 } from "lucide-react";
 
 export const project = defineType({
   name: "project",
   title: "Project",
   type: "document",
+  icon: FolderGit2,
   orderings: [orderRankOrdering],
   fields: [
     orderRankField({ type: "project" }),
@@ -48,9 +50,22 @@ export const project = defineType({
       type: "text",
       rows: 2,
       description: "One or two sentences shown on project cards.",
+      validation: (rule) => rule.required().max(220),
     }),
-    defineField({ name: "problem", title: "Problem", type: "text", rows: 3 }),
-    defineField({ name: "solution", title: "Solution", type: "text", rows: 3 }),
+    defineField({
+      name: "problem",
+      title: "Problem",
+      type: "text",
+      rows: 3,
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "solution",
+      title: "Solution",
+      type: "text",
+      rows: 3,
+      validation: (rule) => rule.required(),
+    }),
     defineField({
       name: "architecture",
       title: "Architecture Stages",
@@ -63,20 +78,28 @@ export const project = defineType({
       title: "Technology",
       type: "array",
       of: [{ type: "string" }],
+      validation: (rule) => rule.required().min(1),
     }),
     defineField({
       name: "keyFeatures",
       title: "Key Features",
       type: "array",
       of: [{ type: "string" }],
+      validation: (rule) => rule.required().min(1),
     }),
     defineField({
       name: "whatILearned",
       title: "What I Learned",
       type: "text",
       rows: 3,
+      validation: (rule) => rule.required(),
     }),
-    defineField({ name: "githubUrl", title: "GitHub URL", type: "url" }),
+    defineField({
+      name: "githubUrl",
+      title: "GitHub URL",
+      type: "url",
+      validation: (rule) => rule.required(),
+    }),
     defineField({ name: "demoUrl", title: "Live Demo URL", type: "url" }),
     defineField({
       name: "screenshot",

@@ -1,10 +1,12 @@
 import { defineField, defineType } from "sanity";
 import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
+import { Building2 } from "lucide-react";
 
 export const experience = defineType({
   name: "experience",
   title: "Experience",
   type: "document",
+  icon: Building2,
   orderings: [orderRankOrdering],
   fields: [
     orderRankField({ type: "experience" }),
@@ -28,6 +30,7 @@ export const experience = defineType({
       title: "Highlights",
       type: "array",
       of: [{ type: "string" }],
+      validation: (rule) => rule.required().min(1),
     }),
   ],
   preview: {
