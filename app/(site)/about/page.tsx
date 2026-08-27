@@ -70,7 +70,7 @@ export default async function AboutPage() {
                 <p className="font-medium">{item.degree}</p>
                 <p className="text-sm text-foreground/60">{item.org}</p>
               </div>
-              <span className="text-sm text-foreground/50">{item.year}</span>
+              <span className="text-sm text-foreground/60">{item.year}</span>
             </div>
           ))}
         </div>

@@ -80,7 +80,7 @@ export function ContactForm() {
       <div>
         <label htmlFor="company" className="text-sm font-medium">
           Company{" "}
-          <span className="font-normal text-foreground/50">(optional)</span>
+          <span className="font-normal text-foreground/60">(optional)</span>
         </label>
         <input
           id="company"

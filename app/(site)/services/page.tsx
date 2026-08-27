@@ -45,7 +45,7 @@ export default async function ServicesPage() {
               <p className="mt-2 text-sm text-foreground/70">{service.summary}</p>
 
               {service.whoFor && (
-                <p className="mt-4 text-xs font-medium uppercase tracking-wide text-foreground/40">
+                <p className="mt-4 text-xs font-medium uppercase tracking-wide text-foreground/60">
                   Who it&apos;s for
                 </p>
               )}
@@ -55,7 +55,7 @@ export default async function ServicesPage() {
 
               {service.includes.length > 0 && (
                 <>
-                  <p className="mt-4 text-xs font-medium uppercase tracking-wide text-foreground/40">
+                  <p className="mt-4 text-xs font-medium uppercase tracking-wide text-foreground/60">
                     What&apos;s included
                   </p>
                   <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-foreground/70">
@@ -68,7 +68,7 @@ export default async function ServicesPage() {
 
               {service.deliverables.length > 0 && (
                 <>
-                  <p className="mt-4 text-xs font-medium uppercase tracking-wide text-foreground/40">
+                  <p className="mt-4 text-xs font-medium uppercase tracking-wide text-foreground/60">
                     Deliverables
                   </p>
                   <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-foreground/70">

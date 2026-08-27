@@ -41,7 +41,7 @@ export default async function ContactPage() {
           <div className="mt-8 space-y-3 text-sm">
             {settings.whatsapp && (
               <p>
-                <span className="text-foreground/50">WhatsApp: </span>
+                <span className="text-foreground/60">WhatsApp: </span>
                 <TrackedLink
                   href={whatsappUrl(settings.whatsapp)}
                   event="WhatsApp Click (Contact Details)"
@@ -52,7 +52,7 @@ export default async function ContactPage() {
               </p>
             )}
             <p>
-              <span className="text-foreground/50">Email: </span>
+              <span className="text-foreground/60">Email: </span>
               <TrackedLink
                 href={`mailto:${settings.email}`}
                 event="Email Click (Contact Details)"
@@ -63,7 +63,7 @@ export default async function ContactPage() {
               </TrackedLink>
             </p>
             <p>
-              <span className="text-foreground/50">GitHub: </span>
+              <span className="text-foreground/60">GitHub: </span>
               <TrackedLink
                 href={settings.githubUrl}
                 event="GitHub Click (Contact)"
@@ -74,7 +74,7 @@ export default async function ContactPage() {
             </p>
             {settings.linkedinUrl && (
               <p>
-                <span className="text-foreground/50">LinkedIn: </span>
+                <span className="text-foreground/60">LinkedIn: </span>
                 <TrackedLink
                   href={settings.linkedinUrl}
                   event="LinkedIn Click (Contact)"
@@ -85,7 +85,7 @@ export default async function ContactPage() {
               </p>
             )}
             <p>
-              <span className="text-foreground/50">Based in: </span>
+              <span className="text-foreground/60">Based in: </span>
               {settings.location}
             </p>
           </div>

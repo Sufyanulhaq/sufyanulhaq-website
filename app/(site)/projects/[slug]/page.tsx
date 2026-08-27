@@ -116,7 +116,7 @@ export default async function ProjectPage({
                 className="w-full"
               />
             </div>
-            <p className="mt-2 text-xs text-foreground/50">
+            <p className="mt-2 text-xs text-foreground/60">
               Illustrative interface preview — no working live demo is
               available for this project (see below).
             </p>

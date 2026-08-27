@@ -25,7 +25,7 @@ export async function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-foreground/40">
+          <p className="text-xs font-medium uppercase tracking-wide text-foreground/60">
             Site
           </p>
           <ul className="mt-3 space-y-2 text-sm">
@@ -40,7 +40,7 @@ export async function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-foreground/40">
+          <p className="text-xs font-medium uppercase tracking-wide text-foreground/60">
             Elsewhere
           </p>
           <ul className="mt-3 space-y-2 text-sm">
@@ -68,7 +68,7 @@ export async function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-foreground/40">
+          <p className="text-xs font-medium uppercase tracking-wide text-foreground/60">
             Get in Touch
           </p>
           <ul className="mt-3 space-y-2 text-sm">
@@ -98,7 +98,7 @@ export async function Footer() {
       </Container>
 
       <div className="border-t border-border">
-        <Container className="py-6 text-xs text-foreground/50">
+        <Container className="py-6 text-xs text-foreground/60">
           &copy; {new Date().getFullYear()} {site.name}. Based in{" "}
           {settings.location}.
         </Container>
