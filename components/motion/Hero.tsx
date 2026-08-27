@@ -3,26 +3,13 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef, ReactNode } from "react";
 
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
-
-const imageItem = {
-  hidden: { opacity: 0, scale: 0.96, y: 12 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
-  },
-};
-
+// The hero text renders as plain static HTML, visible immediately on first
+// paint — no opacity-gated entrance animation. That animation previously
+// shipped the H1 (the page's LCP element) as `opacity: 0` in the server-
+// rendered HTML, so the browser couldn't paint it as visible until React
+// hydrated and Framer Motion ran, adding seconds of pure JS-wait to LCP
+// with no real visual payoff. The decorative background grid below is
+// unaffected — it's non-text and aria-hidden, so animating it costs nothing.
 export function HeroReveal({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -47,41 +34,7 @@ export function HeroReveal({ children }: { children: ReactNode }) {
             "radial-gradient(ellipse 60% 60% at 30% 20%, black, transparent)",
         }}
       />
-      <motion.div initial="hidden" animate="visible" variants={container}>
-        {children}
-      </motion.div>
+      {children}
     </div>
-  );
-}
-
-export function HeroP({ className = "", children }: { className?: string; children: ReactNode }) {
-  return (
-    <motion.p className={className} variants={item}>
-      {children}
-    </motion.p>
-  );
-}
-
-export function HeroH1({ className = "", children }: { className?: string; children: ReactNode }) {
-  return (
-    <motion.h1 className={className} variants={item}>
-      {children}
-    </motion.h1>
-  );
-}
-
-export function HeroDiv({ className = "", children }: { className?: string; children: ReactNode }) {
-  return (
-    <motion.div className={className} variants={item}>
-      {children}
-    </motion.div>
-  );
-}
-
-export function HeroImageReveal({ className = "", children }: { className?: string; children: ReactNode }) {
-  return (
-    <motion.div className={className} variants={imageItem}>
-      {children}
-    </motion.div>
   );
 }
