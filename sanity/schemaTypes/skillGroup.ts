@@ -1,10 +1,13 @@
 import { defineField, defineType } from "sanity";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export const skillGroup = defineType({
   name: "skillGroup",
   title: "Skill Group",
   type: "document",
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: "skillGroup" }),
     defineField({
       name: "title",
       title: "Title",
@@ -23,12 +26,6 @@ export const skillGroup = defineType({
       title: "Is this the 'Currently Learning' group?",
       type: "boolean",
       initialValue: false,
-    }),
-    defineField({
-      name: "order",
-      title: "Order",
-      type: "number",
-      initialValue: 0,
     }),
   ],
 });

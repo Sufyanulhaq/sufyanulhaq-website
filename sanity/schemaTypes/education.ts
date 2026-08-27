@@ -1,10 +1,13 @@
 import { defineField, defineType } from "sanity";
+import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 
 export const education = defineType({
   name: "education",
   title: "Education",
   type: "document",
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: "education" }),
     defineField({
       name: "degree",
       title: "Degree",
@@ -18,12 +21,6 @@ export const education = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({ name: "year", title: "Year", type: "string" }),
-    defineField({
-      name: "order",
-      title: "Order",
-      type: "number",
-      initialValue: 0,
-    }),
   ],
   preview: {
     select: { title: "degree", subtitle: "org" },

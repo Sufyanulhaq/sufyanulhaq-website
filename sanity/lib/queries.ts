@@ -16,7 +16,7 @@ export const siteSettingsQuery = defineQuery(`
 `);
 
 export const projectsQuery = defineQuery(`
-  *[_type == "project"] | order(order asc, _createdAt asc){
+  *[_type == "project"] | order(orderRank asc){
     "slug": slug.current,
     name,
     status,
@@ -54,7 +54,7 @@ export const projectBySlugQuery = defineQuery(`
 `);
 
 export const skillGroupsQuery = defineQuery(`
-  *[_type == "skillGroup"] | order(order asc){
+  *[_type == "skillGroup"] | order(orderRank asc){
     title,
     description,
     skills,
@@ -63,7 +63,7 @@ export const skillGroupsQuery = defineQuery(`
 `);
 
 export const servicesQuery = defineQuery(`
-  *[_type == "service"] | order(order asc){
+  *[_type == "service"] | order(orderRank asc){
     "slug": slug.current,
     title,
     summary,
@@ -75,7 +75,7 @@ export const servicesQuery = defineQuery(`
 `);
 
 export const experienceQuery = defineQuery(`
-  *[_type == "experience"] | order(order asc){
+  *[_type == "experience"] | order(orderRank asc){
     role,
     org,
     location,
@@ -84,7 +84,7 @@ export const experienceQuery = defineQuery(`
 `);
 
 export const educationQuery = defineQuery(`
-  *[_type == "education"] | order(order asc){
+  *[_type == "education"] | order(orderRank asc){
     degree,
     org,
     year
