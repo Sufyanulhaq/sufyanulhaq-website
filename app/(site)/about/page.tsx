@@ -113,11 +113,6 @@ export default async function AboutPage() {
           <Button href={settings.githubUrl} variant="secondary" external>
             View GitHub
           </Button>
-          {settings.cvUrl && (
-            <Button href={settings.cvUrl} variant="secondary" external>
-              Download CV
-            </Button>
-          )}
         </div>
       </Section>
     </>

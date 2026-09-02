@@ -10,7 +10,6 @@ export const siteSettingsQuery = defineQuery(`
     githubUrl,
     linkedinUrl,
     whatsapp,
-    "cvUrl": cvFile.asset->url,
     seoDescription
   }
 `);

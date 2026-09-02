@@ -60,12 +60,6 @@ export const siteSettings = defineType({
           .warning("Digits only, no spaces, +, or dashes — e.g. 447469753723."),
     }),
     defineField({
-      name: "cvFile",
-      title: "CV File",
-      type: "file",
-      options: { accept: ".pdf" },
-    }),
-    defineField({
       name: "seoDescription",
       title: "Default SEO Description",
       type: "text",

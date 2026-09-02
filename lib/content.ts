@@ -46,7 +46,6 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     githubUrl?: string;
     linkedinUrl?: string;
     whatsapp?: string;
-    cvUrl?: string;
     seoDescription?: string;
   } | null>(siteSettingsQuery);
 
@@ -63,7 +62,6 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     githubUrl: result.githubUrl || seedSiteSettings.githubUrl,
     linkedinUrl: result.linkedinUrl || seedSiteSettings.linkedinUrl,
     whatsapp: result.whatsapp || seedSiteSettings.whatsapp,
-    cvUrl: result.cvUrl,
     seoDescription: result.seoDescription || seedSiteSettings.seoDescription,
   };
 }

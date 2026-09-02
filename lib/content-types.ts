@@ -7,7 +7,6 @@ export type SiteSettings = {
   githubUrl: string;
   linkedinUrl?: string;
   whatsapp?: string;
-  cvUrl?: string;
   seoDescription: string;
 };
 
