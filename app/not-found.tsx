@@ -17,7 +17,7 @@ export default function NotFound() {
             Looks like you&apos;ve taken a wrong turn.
           </p>
           <div className="mt-8 flex justify-center">
-            <Button href="/">Back to Home →</Button>
+            <Button href="/">Back to Home</Button>
           </div>
         </Section>
       </main>

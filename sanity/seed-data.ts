@@ -1,6 +1,6 @@
 // Fallback content used whenever no Sanity project is configured yet
 // (see lib/content.ts). Keep this in sync with what a fresh Sanity
-// dataset should be seeded with — it's the same honest content either way.
+// dataset should be seeded with. It's the same honest content either way.
 import type {
   SiteSettings,
   Project,
@@ -13,10 +13,10 @@ import type {
 export const seedSiteSettings: SiteSettings = {
   headline: "Software Developer",
   tagline:
-    "Software developer with a growing focus on cloud computing, automation, and modern digital systems.",
+    "Software developer with a growing focus on cloud computing, automation, and infrastructure.",
   aboutParagraphs: [
-    "I'm Sufyan Ul Haq, a software developer based in Liverpool, UK. My strongest background is in web development — HTML, CSS, JavaScript, PHP, and more recently TypeScript, React, and Next.js — and I'm continuously expanding into cloud computing, automation, and modern infrastructure.",
-    "I enjoy turning practical problems into software, and I care about how something is built as much as whether it works — clean structure, sensible architecture, and code I can explain and defend.",
+    "I'm Sufyan Ul Haq, a software developer based in Liverpool, UK. My strongest background is web development: HTML, CSS, JavaScript, PHP, and more recently TypeScript, React, and Next.js. I'm now expanding into cloud computing, automation, and infrastructure.",
+    "I like turning practical problems into software, and I care about how something is built as much as whether it works. That means clean structure, sensible architecture, and code I can explain and defend.",
     "I'm open to software, web, and cloud-leaning developer roles, freelance projects, and technical collaborations. Below is what I've built, what I'm building now, and what I'm working on next.",
   ],
   email: "hello@sufyanulhaq.com",
@@ -25,7 +25,7 @@ export const seedSiteSettings: SiteSettings = {
   linkedinUrl: "https://www.linkedin.com/in/sufyanulhaq/",
   whatsapp: "447469753723",
   seoDescription:
-    "Software developer based in Liverpool, UK, with a strong web development background, building modern web applications and expanding into cloud computing.",
+    "Sufyan Ul Haq, a software developer in Liverpool, UK, building web applications with React, Next.js and PHP, and moving into cloud and automation.",
 };
 
 export const seedServices: Service[] = [
@@ -34,11 +34,11 @@ export const seedServices: Service[] = [
     title: "Website Development",
     summary: "Modern, responsive, professional websites built from scratch.",
     whoFor:
-      "Individuals, freelancers, and small businesses who need a real website — not a template with their name on it.",
+      "Individuals, freelancers, and small businesses who need a real website, not a template with their name on it.",
     includes: [
       "Custom design and build",
       "Responsive layout for mobile, tablet, and desktop",
-      "SEO foundation — metadata, sitemap, semantic HTML",
+      "SEO foundation: metadata, sitemap, semantic HTML",
       "Content structured for easy updates",
     ],
     deliverables: [
@@ -51,11 +51,11 @@ export const seedServices: Service[] = [
   {
     slug: "web-applications",
     title: "Web Applications",
-    summary: "Custom web applications and business systems, not just static pages.",
+    summary: "Custom web applications and business systems, more than static pages.",
     whoFor:
-      "Businesses that need something interactive — bookings, accounts, a dashboard, or a workflow specific to how they operate.",
+      "Businesses that need something interactive: bookings, accounts, a dashboard, or a workflow specific to how they operate.",
     includes: [
-      "Custom functionality built around your actual process",
+      "Custom functionality built around your real process",
       "Database design and data handling",
       "User accounts, forms, or booking-style flows where needed",
     ],
@@ -107,7 +107,7 @@ export const seedServices: Service[] = [
       "UI/UX improvements",
       "Accessibility fixes",
     ],
-    deliverables: ["A faster, cleaner, more usable site — same content, better execution"],
+    deliverables: ["A faster, cleaner, more usable site with the same content"],
     technologies: ["HTML/CSS", "JavaScript", "Next.js"],
   },
   {
@@ -130,13 +130,13 @@ export const seedProjects: Project[] = [
     slug: "pulse",
     name: "Pulse",
     status: "completed",
-    tag: "Personal Concept · UI & Motion Project",
+    tag: "Personal concept, UI and motion",
     summary:
       "An animation-heavy landing page concept for a fictional focus-tracking app, built to explore scroll-linked motion design and accessible animation.",
     problem:
-      "Heavily animated landing pages often become inaccessible or janky in practice — motion that looks impressive on a fast desktop can break down on mobile, ignore users who've asked for reduced motion, or just feel like a demo reel instead of a considered interface.",
+      "Heavily animated landing pages often become inaccessible or janky in practice. Motion that looks impressive on a fast desktop can break down on mobile, ignore users who have asked for reduced motion, or feel like a demo reel instead of a considered interface.",
     solution:
-      "Built a fully animated marketing landing page for a fictional focus-tracking product: scroll-linked reveal animations, a staggered hero entrance with an animated stat panel, and a working waitlist form with inline validation — with complete prefers-reduced-motion support throughout, so the experience degrades gracefully instead of breaking.",
+      "Built a fully animated marketing landing page for a fictional focus-tracking product: scroll-linked reveal animations, a staggered hero entrance with an animated stat panel, and a working waitlist form with inline validation. It has full prefers-reduced-motion support throughout, so the experience degrades gracefully instead of breaking.",
     architecture: [
       "Browser",
       "React 19",
@@ -153,7 +153,7 @@ export const seedProjects: Project[] = [
       "Fully responsive, no horizontal scroll from 375px up",
     ],
     whatILearned:
-      "Building animation that respects accessibility settings by default rather than as an afterthought, and how much timing and staggering affect whether motion feels premium or just busy.",
+      "Building animation that respects accessibility settings by default rather than as an afterthought, and how much timing and staggering affect whether motion feels polished or just busy.",
     githubUrl: "https://github.com/Sufyanulhaq/pulse",
     demoUrl: "https://pulse-sufyanulhaq.vercel.app",
   },
@@ -161,13 +161,13 @@ export const seedProjects: Project[] = [
     slug: "hotel-booking-website",
     name: "Hotel Booking Website",
     status: "completed",
-    tag: "Code Available · No Live Demo",
+    tag: "Code on GitHub, no live demo",
     summary:
       "A full-stack hotel booking application covering room search, booking, and a sandbox payment integration.",
     problem:
-      "Hotel booking flows involve more moving parts than they first appear — searching availability, holding a room selection, collecting payment, and confirming or refunding a booking without losing data along the way.",
+      "Hotel booking flows involve more moving parts than they first appear: searching availability, holding a room selection, collecting payment, and confirming or refunding a booking without losing data along the way.",
     solution:
-      "Built a multi-page PHP application backed by a MySQL database, covering the full booking lifecycle: room search and detail pages, a booking and confirmation flow, and a payment integration built against Instamojo's test/sandbox API, including a webhook-verified confirmation step and a refund flow. No real money moves through it — it's a working integration, not a live payment processor.",
+      "Built a multi-page PHP application backed by a MySQL database, covering the full booking lifecycle: room search and detail pages, a booking and confirmation flow, and a payment integration built against Instamojo's test and sandbox API, including a webhook-verified confirmation step and a refund flow. No real money moves through it. It's a working integration, not a live payment processor.",
     architecture: [
       "Browser",
       "PHP (server-rendered pages)",
@@ -184,7 +184,7 @@ export const seedProjects: Project[] = [
       "Contact and newsletter forms",
     ],
     whatILearned:
-      "Structuring a multi-page PHP application around a relational schema, keeping a multi-step flow — search, book, pay, confirm — consistent when any step can fail, and integrating a third-party payment API end to end, including webhook signature verification.",
+      "Structuring a multi-page PHP application around a relational schema, keeping a multi-step flow (search, book, pay, confirm) consistent when any step can fail, and integrating a third-party payment API end to end, including webhook signature verification.",
     githubUrl:
       "https://github.com/Sufyanulhaq/Hotel-Booking-Website-Working-Code-master",
     // No demoUrl: the Vercel deployment serves the raw .php source instead
@@ -195,11 +195,11 @@ export const seedProjects: Project[] = [
     slug: "roof-info",
     name: "Roof.info",
     status: "completed",
-    tag: "Live Project · Deployed",
+    tag: "Live and deployed",
     summary:
       "A Laravel-based content platform reviewing roofing materials, built with a proper MVC structure and test coverage.",
     problem:
-      "Content-driven sites need a maintainable structure behind them, not just static pages — routing, data models, and a way to verify changes don't break existing behaviour.",
+      "Content-driven sites need a maintainable structure behind them, not a pile of static pages. That means routing, data models, and a way to verify changes don't break existing behaviour.",
     solution:
       "Built with Laravel's MVC architecture: routes and controllers handle requests, Eloquent models manage the underlying MySQL data, and the front end is bundled with Vite. Includes a PHPUnit test suite.",
     architecture: [
@@ -217,7 +217,7 @@ export const seedProjects: Project[] = [
       "Vite-bundled front-end assets",
     ],
     whatILearned:
-      "Working inside a framework's conventions instead of building everything from scratch — routing, ORM, migrations — and writing tests alongside the application code.",
+      "Working inside a framework's conventions instead of building everything from scratch (routing, ORM, migrations), and writing tests alongside the application code.",
     githubUrl: "https://github.com/Sufyanulhaq/ROOF",
     demoUrl: "https://www.roof.info",
   },
@@ -225,11 +225,11 @@ export const seedProjects: Project[] = [
     slug: "butcher-shop",
     name: "Butcher Shop",
     status: "completed",
-    tag: "Code Available · No Live Demo",
+    tag: "Code on GitHub, no live demo",
     summary:
       "An e-commerce site for an online butcher shop, including customer accounts, cart/checkout, and an admin panel.",
     problem:
-      "An online shop needs more than a product list — accounts, a cart that persists through checkout, and a way for the shop owner to manage products without editing code.",
+      "An online shop needs more than a product list. It needs accounts, a cart that persists through checkout, and a way for the shop owner to manage products without editing code.",
     solution:
       "Built a PHP and MySQL e-commerce site with customer registration and login, a shopping cart and checkout flow, and a separate admin panel for managing products and orders.",
     architecture: [
@@ -248,19 +248,19 @@ export const seedProjects: Project[] = [
     whatILearned:
       "Handling stateful flows like a cart across multiple pages, and separating customer-facing and admin functionality within the same codebase.",
     githubUrl: "https://github.com/Sufyanulhaq/butcher-shop",
-    // No demoUrl: same issue as Hotel Booking — served as raw PHP, not executed.
+    // No demoUrl: same issue as Hotel Booking, served as raw PHP, not executed.
   },
   {
     slug: "sufyanulhaq-com",
     name: "This Website",
     status: "completed",
-    tag: "Live Project · Deployed",
+    tag: "Live and deployed",
     summary:
       "This site itself: a production personal website built with Next.js, TypeScript, and an embedded headless CMS.",
     problem:
-      "A portfolio needs to be easy to keep up to date — adding a project or updating skills shouldn't mean editing React components.",
+      "A portfolio needs to be easy to keep up to date. Adding a project or updating skills shouldn't mean editing React components.",
     solution:
-      "Built with Next.js (App Router) and TypeScript, with content managed through an embedded Sanity Studio so every section — projects, skills, experience, writing — can be updated without touching code.",
+      "Built with Next.js (App Router) and TypeScript, with content managed through an embedded Sanity Studio so every section (projects, skills, experience, writing) can be updated without touching code.",
     architecture: [
       "Browser",
       "Next.js (App Router, static generation)",
@@ -275,7 +275,7 @@ export const seedProjects: Project[] = [
       "Accessible, responsive layout",
     ],
     whatILearned:
-      "Designing a content model that's simple enough to actually maintain, and the Next.js App Router patterns for combining static generation with CMS-driven content.",
+      "Designing a content model that's simple enough to maintain, and the Next.js App Router patterns for combining static generation with CMS-driven content.",
     githubUrl: "https://github.com/Sufyanulhaq/sufyanulhaq-website",
     demoUrl: "https://sufyanulhaq.com",
   },
@@ -322,20 +322,22 @@ export const seedExperience: Experience[] = [
     org: "NextTech Solutions",
     location: "Rawalpindi, Pakistan",
     bullets: [
-      "Built and maintained web applications end to end — frontend UI, backend logic, and database-driven features using HTML, CSS, JavaScript, and PHP.",
+      "Built and maintained web applications end to end: frontend UI, backend logic, and database-driven features using HTML, CSS, JavaScript, and PHP.",
       "Integrated APIs and handled data flow between the frontend and backend to support real application features.",
       "Debugged production issues and shipped fixes, working directly with a team rather than in isolation.",
       "Took features from client requirements through to a deployed, working release in a live production environment.",
     ],
   },
   {
-    role: "Web Designing Intern",
+    role: "IT Support Technician",
     org: "NextTech Solutions",
     location: "Islamabad, Pakistan",
     bullets: [
       "Converted visual designs into working, responsive HTML/CSS interfaces.",
       "Defined technical requirements for e-commerce functionality, translating client needs into buildable site concepts.",
       "Worked directly with developers on design-to-implementation handoff, an early grounding in how technical constraints shape UI decisions.",
+      "Provided first-line IT support, troubleshooting hardware and software issues, setting up computers and user accounts, and helping users with day-to-day IT queries.",
+      "Managed user accounts, passwords, and access permissions.",
     ],
   },
 ];

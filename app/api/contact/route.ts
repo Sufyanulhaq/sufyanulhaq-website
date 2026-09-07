@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "The contact form isn't fully configured yet — please email directly instead.",
+          "The contact form isn't fully configured yet. Please email me directly instead.",
       },
       { status: 503 },
     );

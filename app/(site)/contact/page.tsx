@@ -25,7 +25,7 @@ export default async function ContactPage() {
           </h1>
           <p className="mt-4 text-foreground/70">
             Whether you&apos;re hiring for a developer role, have a freelance
-            web project in mind, or just want to say hi — I&apos;d like to
+            web project in mind, or just want to say hello, I&apos;d like to
             hear from you.
           </p>
           {settings.whatsapp && (

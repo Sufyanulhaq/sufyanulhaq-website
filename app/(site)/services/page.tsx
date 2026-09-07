@@ -24,8 +24,8 @@ export default async function ServicesPage() {
           Services
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-foreground/70">
-          What I can actually build for you — no services listed here that
-          I can&apos;t genuinely deliver.
+          What I can build for you. Nothing is listed here that I can&apos;t
+          deliver.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Button href="/contact" trackEvent="Start a Project (Services)">Start a Project</Button>
@@ -107,9 +107,9 @@ export default async function ServicesPage() {
           Have Something Else in Mind?
         </h2>
         <p className="mt-3 max-w-xl text-foreground/70">
-          If what you need doesn&apos;t fit neatly into the above, tell me
-          about it — I&apos;ll be upfront if it&apos;s outside what I can
-          deliver right now.
+          If what you need doesn&apos;t fit neatly into the list above, tell me
+          about it. I&apos;ll be upfront if it&apos;s outside what I can deliver
+          right now.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Button href="/contact" trackEvent="Start a Project (Services)">Start a Project</Button>

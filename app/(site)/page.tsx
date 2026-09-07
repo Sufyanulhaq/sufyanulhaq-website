@@ -28,13 +28,13 @@ const capabilities = [
     icon: Code2,
     title: "Web Development",
     description:
-      "Modern, responsive web applications — HTML, CSS, JavaScript, PHP, and TypeScript with React and Next.js.",
+      "Modern, responsive web applications built with HTML, CSS, JavaScript, PHP, and TypeScript on React and Next.js.",
   },
   {
     icon: Cloud,
     title: "Cloud & Infrastructure",
     description:
-      "AWS fundamentals, deployment, and DNS/domain setup — genuinely hands-on, still actively growing this side.",
+      "AWS fundamentals, deployment, and DNS setup. Hands-on, and an area I'm still growing.",
   },
   {
     icon: Workflow,
@@ -48,7 +48,7 @@ const process = [
   {
     step: "01",
     title: "Understand",
-    description: "Understand the problem, requirements and users — before any code.",
+    description: "Understand the problem, the requirements, and the users before any code.",
   },
   {
     step: "02",
@@ -197,11 +197,10 @@ export default async function Home() {
 
       <Section className="border-t border-border" reveal>
         <h2 className="text-2xl font-semibold tracking-tight">
-          Building &amp; Learning in Public
+          Code on GitHub
         </h2>
         <p className="mt-3 max-w-xl text-foreground/70">
-          A selection of repositories — current work and completed builds —
-          pulled live from GitHub.
+          A few repositories, current and past, pulled live from GitHub.
         </p>
         <div className="mt-8">
           <GitHubActivity />
