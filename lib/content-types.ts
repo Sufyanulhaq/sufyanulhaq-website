@@ -27,6 +27,7 @@ export type Project = {
   githubUrl?: string;
   demoUrl?: string;
   screenshotUrl?: string;
+  updatedAt?: string;
 };
 
 export type SkillGroup = {

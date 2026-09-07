@@ -28,10 +28,21 @@ import type {
 
 const REVALIDATE_SECONDS = 60;
 
-async function sanityFetch<T>(query: string, params: Record<string, unknown> = {}) {
-  return client.fetch<T>(query, params, {
-    next: { revalidate: REVALIDATE_SECONDS },
-  });
+async function sanityFetch<T>(
+  query: string,
+  params: Record<string, unknown> = {},
+): Promise<T | null> {
+  try {
+    return await client.fetch<T>(query, params, {
+      next: { revalidate: REVALIDATE_SECONDS },
+    });
+  } catch (error) {
+    // A failed content read must never take a page down. Returning null lets
+    // every caller fall through to its seed-data fallback, so the site keeps
+    // serving 200s (with slightly stale content) instead of 5xx to crawlers.
+    console.error("Sanity fetch failed, falling back to seed data:", error);
+    return null;
+  }
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
@@ -73,11 +84,15 @@ export async function getProjects(): Promise<Project[]> {
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
-  if (!isSanityConfigured) {
-    return seedProjects.find((p) => p.slug === slug);
-  }
+  const seedMatch = seedProjects.find((p) => p.slug === slug);
+  if (!isSanityConfigured) return seedMatch;
+
   const result = await sanityFetch<Project | null>(projectBySlugQuery, { slug });
-  return result ?? undefined;
+  // `result` is null both when the slug genuinely doesn't exist and when the
+  // fetch failed. Fall back to a seed match so a Sanity outage doesn't turn a
+  // known project URL into a 404; a truly unknown slug still resolves to
+  // undefined and the page renders notFound().
+  return result ?? seedMatch;
 }
 
 export function getCompletedProjects(projects: Project[]) {

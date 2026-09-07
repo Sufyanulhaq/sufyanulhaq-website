@@ -29,7 +29,8 @@ export const projectsQuery = defineQuery(`
     whatILearned,
     githubUrl,
     demoUrl,
-    "screenshotUrl": screenshot.asset->url
+    "screenshotUrl": screenshot.asset->url,
+    "updatedAt": _updatedAt
   }
 `);
 
@@ -48,7 +49,8 @@ export const projectBySlugQuery = defineQuery(`
     whatILearned,
     githubUrl,
     demoUrl,
-    "screenshotUrl": screenshot.asset->url
+    "screenshotUrl": screenshot.asset->url,
+    "updatedAt": _updatedAt
   }
 `);
 
