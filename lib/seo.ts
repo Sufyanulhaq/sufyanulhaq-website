@@ -17,7 +17,7 @@ export function pageMetadata({
 }: PageMetaInput): Metadata {
   const url = new URL(path, site.url).toString();
   const ogImage = image ?? new URL("/opengraph-image", site.url).toString();
-  const fullTitle = `${title} — ${site.name}`;
+  const fullTitle = `${title} | ${site.name}`;
 
   return {
     title,

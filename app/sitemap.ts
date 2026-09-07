@@ -6,8 +6,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = await getProjects();
 
   // Use the newest project update as a stand-in for "the site changed", so the
-  // sitemap's lastmod values only move when content actually moves — not on
-  // every deploy (which `new Date()` would do).
+  // sitemap's lastmod values only move when content moves, not on every
+  // deploy (which `new Date()` would do).
   const projectDates = projects
     .map((p) => p.updatedAt)
     .filter((d): d is string => Boolean(d))

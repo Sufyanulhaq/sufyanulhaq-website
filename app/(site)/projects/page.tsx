@@ -22,9 +22,8 @@ export default async function ProjectsPage() {
           Selected Projects
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-foreground/70">
-          A curated selection of projects demonstrating my approach to
-          software development, web applications, UI, APIs, and modern
-          technologies.
+          A few projects that show how I work across web applications, UIs,
+          APIs, and databases.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {completed.map((project) => (

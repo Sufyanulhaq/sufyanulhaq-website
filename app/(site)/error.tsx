@@ -24,8 +24,8 @@ export default function SiteError({
             Something went wrong.
           </h1>
           <p className="mt-3 text-foreground/70">
-            This page failed to load. It&apos;s usually temporary — try again in
-            a moment.
+            This page failed to load. It&apos;s usually temporary, so try again
+            in a moment.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <button

@@ -117,8 +117,8 @@ export default async function ProjectPage({
               />
             </div>
             <p className="mt-2 text-xs text-foreground/60">
-              Illustrative interface preview — no working live demo is
-              available for this project (see below).
+              Illustrative interface preview. There is no working live demo
+              for this project (see below).
             </p>
           </div>
         )
