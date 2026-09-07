@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
         destination: "/projects",
         permanent: true,
       },
+      // Note: the junk `?u=<digits>` homepage hits from a spam crawler are
+      // stripped in proxy.ts, not here — a next.config redirect re-appends
+      // the matched query param to the destination and loops.
     ];
   },
 };
