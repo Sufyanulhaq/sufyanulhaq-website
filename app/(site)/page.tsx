@@ -12,7 +12,7 @@ import {
 } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
 import { whatsappUrl } from "@/lib/site";
-import { Code2, Cloud, Workflow } from "lucide-react";
+import { Bot, Code2, Workflow } from "lucide-react";
 
 export async function generateMetadata() {
   const settings = await getSiteSettings();
@@ -25,16 +25,16 @@ export async function generateMetadata() {
 
 const capabilities = [
   {
+    icon: Bot,
+    title: "Python & AI Features",
+    description:
+      "Chat assistants that answer from your own documents, and Claude or OpenAI features added to the apps you already run, built in Python and FastAPI.",
+  },
+  {
     icon: Code2,
     title: "Web Development",
     description:
-      "Modern, responsive web applications built with HTML, CSS, JavaScript, PHP, and TypeScript on React and Next.js.",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & Infrastructure",
-    description:
-      "AWS fundamentals, deployment, and DNS setup. Hands-on, and an area I'm still growing.",
+      "Modern, responsive web applications built with Next.js, React and TypeScript, with Laravel and PHP on the back end.",
   },
   {
     icon: Workflow,
@@ -69,7 +69,7 @@ const process = [
 
 const openTo = [
   "Software Development",
-  "Cloud & Infrastructure Opportunities",
+  "AI & Automation Projects",
   "Freelance Projects",
   "Technical Collaborations",
 ];

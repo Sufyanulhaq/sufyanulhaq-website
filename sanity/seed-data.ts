@@ -11,13 +11,13 @@ import type {
 } from "@/lib/content-types";
 
 export const seedSiteSettings: SiteSettings = {
-  headline: "Software Developer",
+  headline: "Python Software Developer",
   tagline:
-    "Software developer with a growing focus on cloud computing, automation, and infrastructure.",
+    "Python and TypeScript developer building web applications and the AI features that go inside them, from chat assistants to automation.",
   aboutParagraphs: [
-    "I'm Sufyan Ul Haq, a software developer based in Liverpool, UK. My strongest background is web development: HTML, CSS, JavaScript, PHP, and more recently TypeScript, React, and Next.js. I'm now expanding into cloud computing, automation, and infrastructure.",
-    "I like turning practical problems into software, and I care about how something is built as much as whether it works. That means clean structure, sensible architecture, and code I can explain and defend.",
-    "I'm open to software, web, and cloud-leaning developer roles, freelance projects, and technical collaborations. Below is what I've built, what I'm building now, and what I'm working on next.",
+    "I'm Sufyan Ul Haq, a software developer based in Liverpool, UK. I work mainly in Python, TypeScript and PHP. I build web applications with Next.js, React and Laravel, and I add AI features to them: chat assistants that answer from a company's own documents, automation between the tools a business already uses, and integrations with the Claude and OpenAI APIs.",
+    "I like turning practical problems into software, and I care about how something is built as much as whether it works. That means clean structure, sensible architecture, tests where they matter, and code I can explain and defend.",
+    "I'm open to software, web, and AI leaning developer roles, freelance projects, and technical collaborations. Below is what I've built, what I'm building now, and what I'm working on next.",
   ],
   email: "hello@sufyanulhaq.com",
   location: "Liverpool, UK",
@@ -25,7 +25,7 @@ export const seedSiteSettings: SiteSettings = {
   linkedinUrl: "https://www.linkedin.com/in/sufyanulhaq/",
   whatsapp: "447469753723",
   seoDescription:
-    "Sufyan Ul Haq, a software developer in Liverpool, UK, building web applications with React, Next.js and PHP, and moving into cloud and automation.",
+    "Sufyan Ul Haq, a Python software developer in Liverpool, UK. Web apps with Next.js and Laravel, plus AI chat assistants and automation with Claude and OpenAI.",
 };
 
 export const seedServices: Service[] = [
@@ -64,6 +64,25 @@ export const seedServices: Service[] = [
       "A clear handover of how it's structured",
     ],
     technologies: ["React", "Next.js", "PHP", "MySQL", "REST APIs"],
+  },
+  {
+    slug: "ai-chat-assistants-integrations",
+    title: "AI Chat Assistants & Integrations",
+    summary:
+      "Chat assistants that answer from your own documents, and AI features added to the software you already run.",
+    whoFor:
+      "Businesses with documentation or support content that customers or staff keep asking about, or an existing app that could use a summarising, sorting or drafting step.",
+    includes: [
+      "Chat assistants that answer from your own docs, with the source shown for every answer",
+      "AI steps inside an existing app, such as summarising, sorting or drafting",
+      "Connecting the Claude or OpenAI APIs to your back end",
+      "Input checks, rate limiting and a clear answer when the docs have nothing relevant",
+    ],
+    deliverables: [
+      "A working assistant or feature, deployed and tested",
+      "Source code you own and a short guide to adding or changing content",
+    ],
+    technologies: ["Python", "FastAPI", "Claude API", "OpenAI API", "Next.js"],
   },
   {
     slug: "api-integration-automation",
@@ -126,6 +145,31 @@ export const seedServices: Service[] = [
 ];
 
 export const seedProjects: Project[] = [
+  {
+    slug: "ai-docs-assistant",
+    name: "AI Docs Assistant",
+    status: "completed",
+    tag: "Code on GitHub, no live demo",
+    summary:
+      "A chat assistant that answers questions from your own documentation and shows which passages each answer came from. Python and FastAPI back end, Next.js front end, works with Claude, OpenAI or offline.",
+    problem:
+      "Documentation bots often sound confident while making things up, and it is hard to see where an answer came from. A team needs an assistant it can trust to stay inside its own content and to admit when the answer is not there.",
+    solution:
+      'Built a retrieval based assistant. The Python back end splits documents by heading, finds the passages that match a question with BM25 search, and streams the answer back as it is written. The Next.js front end shows clickable citations next to every answer. A question with nothing relevant in the docs never reaches the model and gets an honest "could not find it" reply instead of a guess.',
+    architecture: ["Browser", "Next.js", "FastAPI", "BM25 search", "Claude, OpenAI or offline"],
+    techStack: ["Python", "FastAPI", "Next.js", "TypeScript", "BM25", "Claude API", "OpenAI API", "pytest"],
+    keyFeatures: [
+      "Answers stream live with clickable source citations",
+      "A relevance check keeps off topic questions away from the model",
+      "Works with Claude, OpenAI, or an offline mode that needs no API key",
+      "Short follow up questions use the conversation history",
+      "Input validation, rate limiting and API keys kept on the server",
+      "58 automated tests, including a retrieval accuracy check on 18 questions",
+    ],
+    whatILearned:
+      'Search quality decides answer quality, so I tested retrieval on its own against real questions before connecting any model. That caught a stemming bug that would have hidden some documents. A browser test also caught a message like "tell me a joke" inheriting the previous question\'s topic, which now has a regression test.',
+    githubUrl: "https://github.com/Sufyanulhaq/ai-docs-assistant",
+  },
   {
     slug: "pulse",
     name: "Pulse",
@@ -286,11 +330,14 @@ export const seedSkillGroups: SkillGroup[] = [
     title: "Development",
     description: "Core languages and frameworks used day to day.",
     skills: [
+      "Python",
+      "FastAPI",
       "JavaScript",
       "TypeScript",
       "React",
       "Next.js",
       "PHP",
+      "Laravel",
       "HTML/CSS",
       "Responsive Web Development",
     ],
@@ -303,9 +350,17 @@ export const seedSkillGroups: SkillGroup[] = [
     isCurrentlyLearning: false,
   },
   {
-    title: "APIs & Automation",
-    description: "Connecting services and automating repetitive work.",
-    skills: ["REST APIs", "API Integration", "Scripting", "Automation"],
+    title: "AI, APIs & Automation",
+    description: "Connecting services, adding AI features and automating repetitive work.",
+    skills: [
+      "REST APIs",
+      "API Integration",
+      "Claude and OpenAI APIs",
+      "AI Chat Assistants",
+      "n8n",
+      "Scripting",
+      "Automation",
+    ],
     isCurrentlyLearning: false,
   },
   {
