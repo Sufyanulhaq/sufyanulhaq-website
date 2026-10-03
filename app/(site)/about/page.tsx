@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About",
   description:
-    "Background, experience, and skills of Sufyan Ul Haq, a software developer in Liverpool, UK who builds web applications and is moving into cloud and automation.",
+    "Background, experience, and skills of Sufyan Ul Haq, a Python software developer in Liverpool, UK who builds web applications and the AI features that go inside them.",
   path: "/about",
 });
 
@@ -105,7 +105,7 @@ export default async function AboutPage() {
           Open to Opportunities
         </h2>
         <p className="mt-3 max-w-xl text-foreground/70">
-          I&apos;m open to software, web, and cloud-leaning developer roles,
+          I&apos;m open to software, web, and AI leaning developer roles,
           freelance projects, and technical collaborations.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
