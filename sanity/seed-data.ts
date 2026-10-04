@@ -11,7 +11,7 @@ import type {
 } from "@/lib/content-types";
 
 export const seedSiteSettings: SiteSettings = {
-  headline: "Python Software Developer",
+  headline: "Software Developer",
   tagline:
     "Python and TypeScript developer building web applications and the AI features that go inside them, from chat assistants to automation.",
   aboutParagraphs: [
@@ -25,7 +25,7 @@ export const seedSiteSettings: SiteSettings = {
   linkedinUrl: "https://www.linkedin.com/in/sufyanulhaq/",
   whatsapp: "447469753723",
   seoDescription:
-    "Sufyan Ul Haq, a Python software developer in Liverpool, UK. Web apps with Next.js and Laravel, plus AI chat assistants and automation with Claude and OpenAI.",
+    "Sufyan Ul Haq, a software developer in Liverpool, UK. Web apps with Next.js and Laravel, plus AI chat assistants and automation with Claude and OpenAI.",
 };
 
 export const seedServices: Service[] = [
