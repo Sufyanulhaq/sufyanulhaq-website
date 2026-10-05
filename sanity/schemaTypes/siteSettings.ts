@@ -11,8 +11,8 @@ export const siteSettings = defineType({
       name: "headline",
       title: "Headline",
       type: "string",
-      description: 'e.g. "Web Developer" — shown as the H1 and browser tab title.',
-      validation: (rule) => rule.required().max(60).warning("Keep it short — this is also the page title."),
+      description: 'e.g. "Web Developer". Shown as the H1 and browser tab title.',
+      validation: (rule) => rule.required().max(60).warning("Keep it short, this is also the page title."),
     }),
     defineField({
       name: "tagline",
@@ -57,14 +57,14 @@ export const siteSettings = defineType({
       validation: (rule) =>
         rule
           .regex(/^\d+$/, { name: "digits only" })
-          .warning("Digits only, no spaces, +, or dashes — e.g. 447469753723."),
+          .warning("Digits only, no spaces, plus signs or dashes. For example 447469753723."),
     }),
     defineField({
       name: "seoDescription",
       title: "Default SEO Description",
       type: "text",
       rows: 2,
-      description: "Shown in Google search results. Aim for 120–158 characters.",
+      description: "Shown in Google search results. Aim for 120 to 158 characters.",
       validation: (rule) =>
         rule
           .required()

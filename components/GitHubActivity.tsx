@@ -7,10 +7,11 @@ type Repo = {
   pushed_at: string;
 };
 
-// Curated rather than pulled by raw API sort order — prioritises current
+// Curated rather than pulled by raw API sort order. Prioritises current
 // and technically strongest repos over whatever happens to be most
 // recently pushed, so this doesn't read as an inactive account.
 const FEATURED_REPOS = [
+  "ai-docs-assistant",
   "sufyanulhaq-website",
   "pulse",
   "ROOF",
